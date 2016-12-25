@@ -25,6 +25,14 @@ body {
 .form_left{
 	
 }
+
+#profielfoto{
+	margin-right: 5px;
+	margin-left: 5px;
+}
+#profielfoto img{
+	border-radius: 5px;
+}
 .form_right{
 }
 
