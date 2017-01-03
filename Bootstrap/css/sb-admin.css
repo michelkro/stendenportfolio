@@ -17,6 +17,22 @@ body {
   margin-top: 50px;
 }
 
+#emailrij{
+	width: 400px;
+}
+
+#namenrij{
+	margin-bottom: 10px;
+}
+
+#berichtrij{
+	margin-bottom: 20px;
+}
+
+#verzendenrij{
+	margin-left: 10px;
+}
+
 #wrapper {
   padding-left: 0;
 }
