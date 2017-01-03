@@ -189,3 +189,25 @@ table.tablesorter thead tr th:hover {
   }
 
 }
+
+.frontendhome{
+    background-color: chocolate;
+    height: 740px;
+    width: 1650px;
+}
+
+.pasfoto img{
+    margin: 10px;
+    width: auto;
+    height: auto;
+    max-height: 250px;
+    float: left;
+}
+.overjouzelf{
+    margin: 10px;
+    height: 250px;
+    width: 1400px;
+    text-align: center;
+    background-color: indianred;
+    float: left;
+}
