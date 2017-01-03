@@ -117,12 +117,25 @@
 
         <div class="row">
           <div class="col-lg-12">
-            <h1>Blank Page <small>A Blank Slate</small></h1>
+            <h1>Frits Huig <small>Portfolio</small></h1>
             <ol class="breadcrumb">
-              <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
+              <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
               <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
             </ol>
           </div>
+            <div class="frontendhome">
+                <div class="pasfoto">
+                    <img src="Pasfoto.jpg" alt="pasfoto">
+                </div>
+                <div class="overjouzelf">
+                    <h1>Welkom op mijn portfolio</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean turpis leo, porta vel venenatis ut, efficitur ut arcu. Nulla semper, dolor at varius pellentesque, velit odio suscipit eros, quis fermentum metus magna nec turpis. Donec tristique sodales risus. Sed vitae varius erat. Sed ut nisl condimentum, molestie purus quis, blandit nibh. Aenean et justo mattis, ultricies lectus at, congue elit. Sed sit amet odio in mauris volutpat faucibus. Proin vitae luctus justo. Mauris ullamcorper efficitur libero.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean turpis leo, porta vel venenatis ut, efficitur ut arcu. Nulla semper, dolor at varius pellentesque, velit odio suscipit eros, quis fermentum metus magna nec turpis. Donec tristique sodales risus. Sed vitae varius erat. Sed ut nisl condimentum, molestie purus quis, blandit nibh. Aenean et justo mattis, ultricies lectus at, congue elit. Sed sit amet odio in mauris volutpat faucibus. Proin vitae luctus justo. Mauris ullamcorper efficitur libero.
+
+                        Duis condimentum sit amet dui ornare ornare. Sed nec consequat nisi. Donec dictum dui enim, eu ornare lorem interdum vitae. Donec pretium, nibh ut interdum scelerisque, lacus nisi ultrices lectus, eget tempor tellus arcu vel dolor. Phasellus vitae condimentum mi. Ut metus felis, ullamcorper sit amet ligula id, convallis dapibus mauris. Nam blandit commodo odio eu convallis. Proin porttitor, arcu eu porta 
+                        Duis condimentum sit amet dui ornare ornare. Sed nec consequat nisi. Donec dictum dui enim, eu ornare lorem interdum vitae. Donec pretium, nibh ut interdum scelerisque, lacus nisi ultrices lectus, eget tempor tellus arcu vel dolor. Phasellus vitae condimentum mi. Ut metus felis, ullamcorper sit amet ligula id, convallis dapibus mauris. Nam blandit commodo odio eu convallis. Proin porttitor, arcu eu porta </p>
+                </div>
+            </div>
         </div><!-- /.row -->
 
       </div><!-- /#page-wrapper -->
