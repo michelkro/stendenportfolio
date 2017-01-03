@@ -21,17 +21,19 @@
     <div id="wrapper">
 
       <!-- Sidebar -->
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">Variabele Naam</a>
-        </div>
+	  <div id="header">
+		  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="index.php">Variabele Naam</a>
+			</div>
+		</div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -39,11 +41,12 @@
 			<div id="profielfoto">
 				<li><img src="https://vacaturekrant.nl/sites/default/files/news_articles/student_570.jpg" alt="persoon" width="100%"></li>
             </div>
-			<li><a href="index.php"><i class="fa fa-file"></i> Hoofdpagina</a></li>
-            <li><a href="fotogalerij.php"><i class="fa fa-bar-chart-o"></i> Fotogalerij</a></li>
-            <li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
-            <li class="active"><a href="contact.php"><i class="fa fa-edit"></i> Contact Opnemen</a></li>
-            <li class="dropdown">
+			<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
+            <li><a href="fotogalerij.php"><i class="fa fa-picture-o"></i> Fotogalerij</a></li>
+            <li><a href="cv.php"><i class="fa fa-group"></i> CV en Werkervaring</a></li>
+            <li class="active"><a href="contact.php"><i class="fa fa-pencil-square-o"></i> Contact Opnemen</a></li>
+            <li><a href="gastenboek.php"><i class="fa fa-comments"></i> Gastenboek</a></li>
+			<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> Styling <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Lettertype</a></li>
