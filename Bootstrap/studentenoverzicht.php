@@ -36,12 +36,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
-            <li class="active"><a href="index.php"><i class="fa fa-file"></i> Hoofdpagina</a></li>
-            <li><a href="fotogalerij.php"><i class="fa fa-bar-chart-o"></i> Fotogalerij</a></li>
-            <li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
-            <li><a href="contact.php"><i class="fa fa-edit"></i> Contact Opnemen</a></li>
-			<li><a href="styling.php"><i class="fa fa-edit"></i> Styling</a></li>
-            <li><a href="beoordeling.php"><i class="fa fa-edit"></i> Beoordeling</a></li>
+            <li><a href="index.php"><i class="fa fa-file"></i> Hoofdpagina</a></li>
+				<li><a href="fotogalerij.php"><i class="fa fa-bar-chart-o"></i> Fotogalerij</a></li>
+				<li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
+				<li><a href="contact.php"><i class="fa fa-edit"></i> Contact Opnemen</a></li>
+				<li><a href="styling.php"><i class="fa fa-wrench"></i> Styling</a></li>
+				<li><a href="beoordeling.php"><i class="fa fa-pencil"></i> Beoordeling</a></li>
+				<li class="active"><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">
