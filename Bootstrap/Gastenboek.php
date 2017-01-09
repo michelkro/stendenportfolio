@@ -14,18 +14,8 @@
     <!-- Add custom CSS here -->
     <style>
                     #body{
-                        width: 96%;
-                        margin: 0 auto;
-                    }
-                    #Datum_Tijd{
-                        font-size: 9pt;
-                    }
-                    #NaamEmail{
-                        font-weight: bold;
-                    }
-                    textArea{
-                        width: 400px;
-                        height: 150px;
+                        width: 50%;
+                        margin: 25px;
                     }
     </style>
     <link href="css/sb-admin.css" rel="stylesheet">
@@ -195,11 +185,11 @@
                     ?>
 
                     <form action="#" method="POST">
-                        <p><input type="text" name="name" placeholder="Uw naam"></p>
-                        <p><input type="text" name="mail" placeholder="Uw Emailadres"></p>
+                        <p><input class="form-control" name="name" placeholder="Uw naam"></p>
+                        <p><input class="form-control" name="mail" placeholder="Uw Emailadres"></p>
 
-                        <p><textarea name="text" placeholder="Plaats hier uw bericht, gebruik maximaal 1000 tekens"></textarea></p>
-                        <p><input type="submit" value="Verzenden" name="submit"></p>
+                        <p><textarea class="form-control" name="text" placeholder="Plaats hier uw bericht, gebruik maximaal 1000 tekens"></textarea></p>
+                        <p><button type="submit" class="btn btn-primary" value="Verzenden" name="submit">Verzenden</button></p>
                     </form>
             </div><!-- /.row -->
 
