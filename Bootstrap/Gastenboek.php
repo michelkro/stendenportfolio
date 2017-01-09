@@ -17,6 +17,7 @@
                         width: 50%;
                         margin: 25px;
                     }
+                    
     </style>
     <link href="css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
@@ -185,10 +186,10 @@
                     ?>
 
                     <form action="#" method="POST">
-                        <p><input class="form-control" name="name" placeholder="Uw naam"></p>
-                        <p><input class="form-control" name="mail" placeholder="Uw Emailadres"></p>
+                        <p><input class="form-control" style="width: 250px" name="name" placeholder="Uw naam"></p>
+                        <p><input class="form-control" style="width: 250px" name="mail" placeholder="Uw Emailadres"></p>
 
-                        <p><textarea class="form-control" name="text" placeholder="Plaats hier uw bericht, gebruik maximaal 1000 tekens"></textarea></p>
+                        <p><textarea class="form-control" style="height: 150px" name="text" placeholder="Plaats hier uw bericht, gebruik maximaal 1000 tekens"></textarea></p>
                         <p><button type="submit" class="btn btn-primary" value="Verzenden" name="submit">Verzenden</button></p>
                     </form>
             </div><!-- /.row -->
