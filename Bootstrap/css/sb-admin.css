@@ -34,6 +34,15 @@ body {
 	margin-bottom: 20px;
 }
 
+#cv img{
+	width: 100%;
+	max-width: 300px;
+}
+
+p img:hover{
+	border: 3px solid #777
+}
+
 #verzendenrij{
 	margin-left: 10px;
 }

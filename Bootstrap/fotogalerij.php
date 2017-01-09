@@ -119,7 +119,9 @@
             </ol>
           </div>
         </div><!-- /.row -->
-
+		<div id="cv">
+			<p><img src="img/cv.png" alt="Curriculum Vitea"></p>
+		</div>
       </div><!-- /#page-wrapper -->
 
     </div><!-- /#wrapper -->

@@ -119,7 +119,7 @@
             </ol>
           </div>
         </div><!-- /.row -->
-		<form action="#" method="post">
+		<form action="contact_accept.php" method="post">
 		<div class="form-group">
 			<div id="voornaamrij">
 				<label>* Voornaam: </label>
