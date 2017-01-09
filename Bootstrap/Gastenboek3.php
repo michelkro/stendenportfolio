@@ -12,6 +12,22 @@
     <link href="css/bootstrap.css" rel="stylesheet">
 
     <!-- Add custom CSS here -->
+    <style>
+                    #body{
+                        width: 96%;
+                        margin: 0 auto;
+                    }
+                    #Datum_Tijd{
+                        font-size: 9pt;
+                    }
+                    #NaamEmail{
+                        font-weight: bold;
+                    }
+                    textArea{
+                        width: 400px;
+                        height: 150px;
+                    }
+    </style>
     <link href="css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
   </head>
@@ -36,10 +52,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
-            <li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
+                                <li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
 				<li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
 				<li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
-                                <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
+            <li class="active"><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
 				<li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>
 				<li><a href="styling.php"><i class="fa fa-wrench"></i> Styling</a></li>
 				<li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>
@@ -112,26 +128,74 @@
 
         <div class="row">
           <div class="col-lg-12">
-            <h1>Frits Huig <small>Portfolio</small></h1>
+            <h1>Gastenboek Admin</h1>
             <ol class="breadcrumb">
               <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
               <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
+              <li><a href="Gastenboek.php"><i class="icon-dashboard"></i> Terug naar het gastenboek</a></li>
             </ol>
           </div>
-            <div class="frontendhome">
-                <div class="pasfoto">
-                    <img src="Pasfoto.jpg" alt="pasfoto">
-                </div>
-                <div class="overjouzelf">
-                    <h1>Welkom op mijn portfolio</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean turpis leo, porta vel venenatis ut, efficitur ut arcu. Nulla semper, dolor at varius pellentesque, velit odio suscipit eros, quis fermentum metus magna nec turpis. Donec tristique sodales risus. Sed vitae varius erat. Sed ut nisl condimentum, molestie purus quis, blandit nibh. Aenean et justo mattis, ultricies lectus at, congue elit. Sed sit amet odio in mauris volutpat faucibus. Proin vitae luctus justo. Mauris ullamcorper efficitur libero.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean turpis leo, porta vel venenatis ut, efficitur ut arcu. Nulla semper, dolor at varius pellentesque, velit odio suscipit eros, quis fermentum metus magna nec turpis. Donec tristique sodales risus. Sed vitae varius erat. Sed ut nisl condimentum, molestie purus quis, blandit nibh. Aenean et justo mattis, ultricies lectus at, congue elit. Sed sit amet odio in mauris volutpat faucibus. Proin vitae luctus justo. Mauris ullamcorper efficitur libero.
+            <div id="body">
+                    <?php
+            $ID = $_GET["ID"];
+            $connect = mysqli_connect("localhost", "root", "");
+                        if(!$connect){
+                            DIE("Could not connect: " . mysqli_error($connect));
+                        }
+                        mysqli_select_db($connect, "project_portfolio");	
+                        $query = "SELECT * FROM `Guestbook` WHERE MessageID = '".$ID."'";
+                        $result = mysqli_query($connect, $query);
 
-                        Duis condimentum sit amet dui ornare ornare. Sed nec consequat nisi. Donec dictum dui enim, eu ornare lorem interdum vitae. Donec pretium, nibh ut interdum scelerisque, lacus nisi ultrices lectus, eget tempor tellus arcu vel dolor. Phasellus vitae condimentum mi. Ut metus felis, ullamcorper sit amet ligula id, convallis dapibus mauris. Nam blandit commodo odio eu convallis. Proin porttitor, arcu eu porta 
-                        Duis condimentum sit amet dui ornare ornare. Sed nec consequat nisi. Donec dictum dui enim, eu ornare lorem interdum vitae. Donec pretium, nibh ut interdum scelerisque, lacus nisi ultrices lectus, eget tempor tellus arcu vel dolor. Phasellus vitae condimentum mi. Ut metus felis, ullamcorper sit amet ligula id, convallis dapibus mauris. Nam blandit commodo odio eu convallis. Proin porttitor, arcu eu porta </p>
-                </div>
-            </div>
-        </div><!-- /.row -->
+                        if(mysqli_num_rows($result) > 0){
+
+                            while($item = mysqli_fetch_assoc($result)){
+
+                                    echo  "<div id='NaamEmail'><p>".$item['Name'];
+                                    echo  "<br>";
+                                    echo  $item['E-Mail']."</p></div>";
+                                    echo  "<p>".$item['Message']."</p>";
+                                    echo  "<div id='Datum_Tijd'>".$item['DateTime']."</div>";
+                                    echo '<br><br>';
+                                    if($item['Publicity']== "Y"){
+                                        echo '<p>Dit bericht is zichtbaar.</p>';
+                                    }
+                                    else{
+                                        echo '<p>Dit bericht is verborgen.</p>';
+                                    }
+                                    echo '<form action="#" method="POST">'
+                                            . '<p><input type="submit" name="zichtbaar" value="zichtbaar maken">'
+                                            . '<input type="submit" name="verberg" value="verbergen">'
+                                            . '<input type="submit" name="verwijder" value="verwijderen"></p>'
+                                            . '</form>';
+                                    echo '<a href="Gastenboek2.php"><input type="submit" value="terug"></a>';
+                                    echo  "<hr>";
+                                    
+                                if(isset($_POST["zichtbaar"])){
+                                   $query1 = "UPDATE `Guestbook` SET `Publicity` = 'Y' WHERE MessageID = '".$ID."'";
+                                   mysqli_query($connect, $query1) OR DIE("ERROR Het bericht is niet zichtbaar gemaakt.");
+                                   echo 'Het bericht is zichtbaar gemaakt.';
+                                   header("Refresh:0");
+                               } 
+                               
+                               if(isset($_POST["verberg"])){
+                                   $query2 = "UPDATE `Guestbook` SET `Publicity` = 'N' WHERE MessageID = '".$ID."'";
+                                   mysqli_query($connect, $query2) OR DIE("ERROR Het bericht is niet verbergt.");
+                                   echo 'Het bericht is verbergt.';
+                                   header("Refresh:0");
+                               } 
+                               
+                               if(isset($_POST["verwijder"])){
+                                   $query3 = "DELETE FROM `Guestbook` WHERE MessageID = '".$ID."'";
+                                   mysqli_query($connect, $query3) OR DIE("ERROR Het bericht is niet verwijderd.");
+                                   echo 'Het bericht is verwijderd.';
+                                   header('Location: gastenboek2.php');
+                               } 
+                            }
+                        }
+                        
+                        
+        ?>
+            </div><!-- /.row -->
 
       </div><!-- /#page-wrapper -->
 
