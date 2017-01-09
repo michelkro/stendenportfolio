@@ -122,26 +122,23 @@
 		<form action="contact_accept.php" method="post">
 		<div class="form-group">
 			<div id="voornaamrij">
-				<label>* Voornaam: </label>
-				<input type="text" name="voornaam" class="form-control2">
-				<p class="help-block"></p>
-			</div>
-			<div id="achternaamrij">
-				<label>* Achternaam: </label>
-				<input type="text" name="achternaam" class="form-control2">
+				<label>* Naam: </label>
+				<input type="text" name="naam" class="form-control2" required>
 				<p class="help-block"></p>
 			</div>
 			<br><label>* Email: </label>
-			<input type="text" name="email" class="form-control">
+			<input type="text" name="email" class="form-control" required>
 			<p class="help-block"></p>
 			<div id="berichtrij">
 				<br><label>* Bericht: </label>
-				<textarea class="form-control"></textarea>
+                                <textarea class="form-control" name="bericht" required></textarea>
 				<p class="help-block"></p>
 			</div>
 			<div id="verzendenrij">
-				<button type="submit" class="btn btn-success" class="verzendenrij"><i class="fa fa-envelope"></i>  Verzenden </button>
+                            <button type="submit" name="submit" class="btn btn-success" class="verzendenrij"><i class="fa fa-envelope"></i>  Verzenden </button>
 			</div>
+                        <br>
+                        * Verplicht Veld
 		</div>
         </form>
       </div><!-- /#page-wrapper -->
