@@ -69,16 +69,35 @@
             </ol>
           </div>
             <div class="frontendhome">
+                <div class="info">
                 <div class="pasfoto">
-                    <img src="Pasfoto.jpg" alt="pasfoto">
+                    <img src="img/Pasfoto.jpg" alt="pasfoto">
+                </div>
+                    <div class="gegevens">
+                        <h2>Personelijke gegevens</h2>
+                        <p>Adres: Ovaalstraat 33</p>
+                        <p>Woonplaats: ovaalland</p>
+                        <p>telefoon: 0591-543344</p>
+                        <p>E-mail: Frits.Huig@huigelaartje.com </p>
+                        <p>Leeftijd: 22 jaar</p>
+                        <p>Auto?: Ja</p>
+                    </div>
                 </div>
                 <div class="overjouzelf">
                     <h1>Welkom op mijn portfolio</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean turpis leo, porta vel venenatis ut, efficitur ut arcu. Nulla semper, dolor at varius pellentesque, velit odio suscipit eros, quis fermentum metus magna nec turpis. Donec tristique sodales risus. Sed vitae varius erat. Sed ut nisl condimentum, molestie purus quis, blandit nibh. Aenean et justo mattis, ultricies lectus at, congue elit. Sed sit amet odio in mauris volutpat faucibus. Proin vitae luctus justo. Mauris ullamcorper efficitur libero.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean turpis leo, porta vel venenatis ut, efficitur ut arcu. Nulla semper, dolor at varius pellentesque, velit odio suscipit eros, quis fermentum metus magna nec turpis. Donec tristique sodales risus. Sed vitae varius erat. Sed ut nisl condimentum, molestie purus quis, blandit nibh. Aenean et justo mattis, ultricies lectus at, congue elit. Sed sit amet odio in mauris volutpat faucibus. Proin vitae luctus justo. Mauris ullamcorper efficitur libero.
-
-                        Duis condimentum sit amet dui ornare ornare. Sed nec consequat nisi. Donec dictum dui enim, eu ornare lorem interdum vitae. Donec pretium, nibh ut interdum scelerisque, lacus nisi ultrices lectus, eget tempor tellus arcu vel dolor. Phasellus vitae condimentum mi. Ut metus felis, ullamcorper sit amet ligula id, convallis dapibus mauris. Nam blandit commodo odio eu convallis. Proin porttitor, arcu eu porta 
-                        Duis condimentum sit amet dui ornare ornare. Sed nec consequat nisi. Donec dictum dui enim, eu ornare lorem interdum vitae. Donec pretium, nibh ut interdum scelerisque, lacus nisi ultrices lectus, eget tempor tellus arcu vel dolor. Phasellus vitae condimentum mi. Ut metus felis, ullamcorper sit amet ligula id, convallis dapibus mauris. Nam blandit commodo odio eu convallis. Proin porttitor, arcu eu porta </p>
+                    <p>Mijn naam is Frits Huigen. Ik ben afgestuddeerd op het potocollege ik hoop dat u door mijn portfolio meer over mij te weten komt.</p>
+                </div>
+                <div class="fototrots">
+                    <img src="img/test1.jpg" alt="test">
+                </div>
+                <div class="fototrots">
+                    <img src="img/test2.png" alt="test">
+                </div>
+                <div class="fototrots">
+                    <img src="img/test3.png" alt="test">
+                </div>
+                <div class="fototrots">
+                    <img src="img/test4.jpg" alt="test">
                 </div>
             </div>
         </div><!-- /.row -->

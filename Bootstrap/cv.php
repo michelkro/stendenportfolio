@@ -68,6 +68,32 @@
               <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
             </ol>
           </div>
+		   <div class="frontendcv">
+            <div class="infocv">
+                <div class="pasfotocv">
+                    <img src="img/Pasfoto.jpg" alt="pasfoto">
+                </div>
+            </div>
+                <div class="cv">
+                    <h2>CV</h2>
+                    <p>Naam:</p>
+                    <p>Woonplaats:</p>
+                    <p>Adres:</p>
+                    <p>Huidige werknemer:</p>
+                    <p></p>
+                </div>
+                <div class="we">
+                    <h2>Werkervaring</h2>
+                    <p>2006-2010: gewerkt bij IT World</p>
+                    <p>2011-2013: gewerkt bij computer protocol</p>
+                    <p>2013-2014: Werkt bij popidopi</p>
+                    <p>2015-2017: werkt bij beheer.com</p>
+                    <h2>Studie</h2>
+                    <p>1998-2002: ICT web design gestudeerd</p>
+                    <p>2002-2006: ICT beheer gestudeerd</p>
+                    
+                </div>
+            </div>
         </div><!-- /.row -->
 
       </div><!-- /#page-wrapper -->
