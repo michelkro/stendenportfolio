@@ -77,7 +77,7 @@
 				<p class="help-block"></p>
 			</div>
 			<br><label>* Email: </label>
-			<input type="text" name="email" class="form-control" required>
+			<input type="email" name="email" class="form-control" required>
 			<p class="help-block"></p>
 			<div id="berichtrij">
 				<br><label>* Bericht: </label>
