@@ -5,18 +5,14 @@
         if($_SERVER["REQUEST_METHOD"] == "POST") {
         // username and password sent from form 
             if(isset($_POST['guest'])){
-                $myusername = 'Guest';
-                $mypassword = '-';
-                $sql = "SELECT * FROM User WHERE User_Name = '$myusername' and User_Password = '$mypassword'";
+                $sql = "SELECT * FROM User WHERE User_Name = 'Guest'";
                 $result = mysqli_query($db,$sql);
                 $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
                 $count = mysqli_num_rows($result);
 
-                // If result matched $myusername and $mypassword, table row must be 1 row
-
                 if($count == 1) {
-                   $_SESSION['login_user'] = $myusername;
+                   $_SESSION['login_user'] = 'guest@email.com';
 
                    header("location: index.php");
                 }

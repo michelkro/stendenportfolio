@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    
     <title>Stenden Portfolio</title>
 
     <!-- Bootstrap core CSS -->
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
   </head>
   <?php
-  	include ('session.php')
+  	include ('session.php');
 	/* include login sessions for the use of user information */
   ?>
   <body>
