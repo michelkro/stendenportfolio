@@ -6,7 +6,7 @@
    }else{
    $user_check = $_SESSION['login_user'];
    
-   $ses_sql = mysqli_query($db,"select User_Name from User where User_Name = '$user_check' ");
+   $ses_sql = mysqli_query($db,"select * from User where User_Email = '$user_check' ");
    
    $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
    
