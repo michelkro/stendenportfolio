@@ -26,12 +26,6 @@
       <!-- Sidebar -->
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
-	      <li class ='dropdown-header'>
-                    <form  method="post" action="search_submit.php?go"  id="searchform"> 
-                    <input  type="text" name="name"> 
-                    <input  type="submit" name="submit" value="Search"> 
-                    </form> 
-              </li>
 	      <!-- Zoekbalk voor user names -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -40,7 +34,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Variabele Naam</a>
+          <a class="navbar-brand" href="index.php"> Stenden Portfolio </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -57,12 +51,26 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">
+              <li class ='dropdown-header'>
+                    <form  method="post" action="search_submit.php?go"  id="searchform"> 
+                    <input  type="text" name="name"> 
+                    <input  type="submit" name="submit" value="Search"> 
+                    </form> 
+              </li>
             <li class="dropdown user-dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-                <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
-              </ul>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                    <?php
+                    if($_SESSION['login_user'] != null){
+                        echo $_SESSION['login_user'];
+                        echo '<ul class="dropdown-menu">
+                        <li><a href=""><i class="fa fa-user"></i> Profile</a></li>
+                        <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>';
+                    }else {
+                        echo '<li><a href="login.php"><i class="fa fa-power-off"></i> Log In</a></li>';
+                    }
+                    ?> 
+                  <b class="caret"></b></a>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -109,22 +117,6 @@
                 <div class="fototrots">
                     <img src="img/test4.jpg" alt="test">
                 </div>
-		<?php
-			if(isset($_SESSION['login_user']) != null){
-			    echo '<li class="dropdown user-dropdown">
-		      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>'. $_SESSION['login_user'] .'<b class="caret"></b></a>
-		      <ul class="dropdown-menu">
-			<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-			<li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
-			<li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
-			<li class="divider"></li>
-			<li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
-		      </ul>
-		    </li>';
-			}else{
-			    echo '<a href="login.php" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><b class="caret"></b></a>';
-			}
-		 ?>
             </div>
         </div><!-- /.row -->
 

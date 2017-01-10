@@ -15,7 +15,10 @@
     <link href="css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
   </head>
-
+  <?php
+  	include ('session.php')
+	/* include login sessions for the use of user information */
+  ?>
   <body>
 
     <div id="wrapper">
@@ -48,11 +51,19 @@
 
           <ul class="nav navbar-nav navbar-right navbar-user">
             <li class="dropdown user-dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-                <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
-              </ul>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                    <?php
+                    if($_SESSION['login_user'] != null){
+                        echo $_SESSION['login_user'];
+                        echo '<ul class="dropdown-menu">
+                        <li><a href=""><i class="fa fa-user"></i> Profile</a></li>
+                        <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>';
+                    }else {
+                        echo '<li><a href="login.php"><i class="fa fa-power-off"></i> Log In</a></li>';
+                    }
+                    ?> 
+                  <b class="caret"></b></a>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
