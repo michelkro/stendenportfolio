@@ -174,21 +174,21 @@
                                    $query1 = "UPDATE `Guestbook` SET `Publicity` = 'Y' WHERE MessageID = '".$ID."'";
                                    mysqli_query($connect, $query1) OR DIE("ERROR Het bericht is niet zichtbaar gemaakt.");
                                    echo 'Het bericht is zichtbaar gemaakt.';
-                                   header("Refresh:0");
+                                   
                                } 
                                
                                if(isset($_POST["verberg"])){
                                    $query2 = "UPDATE `Guestbook` SET `Publicity` = 'N' WHERE MessageID = '".$ID."'";
                                    mysqli_query($connect, $query2) OR DIE("ERROR Het bericht is niet verbergt.");
                                    echo 'Het bericht is verbergt.';
-                                   header("Refresh:0");
+                                   
                                } 
                                
                                if(isset($_POST["verwijder"])){
                                    $query3 = "DELETE FROM `Guestbook` WHERE MessageID = '".$ID."'";
                                    mysqli_query($connect, $query3) OR DIE("ERROR Het bericht is niet verwijderd.");
                                    echo 'Het bericht is verwijderd.';
-                                   header('Location: gastenboek2.php');
+                                   
                                } 
                             }
                         }

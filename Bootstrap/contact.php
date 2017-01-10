@@ -72,15 +72,15 @@
 		<form action="contact_accept.php" method="post">
 		<div class="form-group">
 			<div id="voornaamrij">
-				<label>* Naam: </label>
+				<label class="standardwith">* Naam: </label>
 				<input type="text" name="naam" class="form-control2" required>
 				<p class="help-block"></p>
 			</div>
-			<br><label>* Email: </label>
-			<input type="email" name="email" class="form-control" required>
+			<br><label class="standardwith">* Email: </label>
+			<input type="text" name="email" class="form-control" required>
 			<p class="help-block"></p>
 			<div id="berichtrij">
-				<br><label>* Bericht: </label>
+				<br><label class="standardwith">* Bericht: </label>
                                 <textarea class="form-control" name="bericht" required></textarea>
 				<p class="help-block"></p>
 			</div>

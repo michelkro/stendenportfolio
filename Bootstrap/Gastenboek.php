@@ -72,7 +72,7 @@
             <ol class="breadcrumb">
               <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
               <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
-              <li><a href="Gastenboek3.php"><i class="icon-dashboard"></i> Admin Gastenboek</a></li>
+              <li><a href="Gastenboek2.php"><i class="icon-dashboard"></i> Admin Gastenboek</a></li>
             </ol>
           </div>
             <div id="body">
@@ -85,9 +85,9 @@
                             DIE("Could not connect: " . mysqli_error($connect));
                         }
                         mysqli_select_db($connect, "project_portfolio");	
-                        $query = "SELECT * FROM `Guestbook`";
+                        $query = "SELECT `Name`, `E-Mail`, `Message`, `DateTime` FROM `Guestbook` WHERE Publicity = 'Y'";
                          $result = mysqli_query($connect, $query);
-                        if(mysqli_num_rows($result) > 0){
+                        if(@mysqli_num_rows($result) != 0){
 
                         while($item = mysqli_fetch_assoc($result)){
 
@@ -115,7 +115,7 @@
                         if(isset($_POST["submit"])){
 
                                     
-                                    $date = date("F-d-Y h:i:A");
+                                    $date = date("Y-n-d h:i:A");
                                     $name = $_POST["name"];
                                     $mail = $_POST["mail"];
                                     $text = $_POST["text"];
@@ -126,8 +126,8 @@
                                 DIE("Could not connect: " . mysqli_error($connect));
                             }
                             mysqli_select_db($connect, "project_portfolio");
-                            $query2 = "INSERT INTO Guestbook (Name, E-Mail, Message, DateTime)
-                                VALUES ('".$name."','".$mail."','".$text."','".$date."')";
+                            $query2 = "INSERT INTO Guestbook (`Name`, `E-Mail`, `Message`, `DateTime`)
+                                VALUES ('".$name."','".$mail."','".$text."','".$date."');";
                             mysqli_query($connect, $query2) OR DIE("<br><br> Data has not been inserted");
                             echo "<br> Het bericht is verstuurd. Zodra de eigenaar van dit gastenboek het bericht heeft goedkeurt zal het in het gastenboek worden plaatst";
                             mysqli_close($connect);
@@ -145,7 +145,7 @@
             </div><!-- /.row -->
 
       </div><!-- /#page-wrapper -->
-
+	  
     </div><!-- /#wrapper -->
 
     <!-- JavaScript -->

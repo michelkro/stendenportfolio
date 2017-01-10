@@ -84,10 +84,10 @@
 		<?php
 			//#### Saving the uploaded file (with restrictions) ####
 
-			if(isset($_POST["submit"])){
+			if(isset($_POST["submit2"])){
 				if ((($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg") || ($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "text/css") || ($_FILES["file"]["type"] == "text/html") || ($_FILES["file"]["type"] == "audio/mpeg3")
 					|| ($_FILES["file"]["type"] == "application/pdf")  || ($_FILES["file"]["type"] == "application/mspowerpoint")  || ($_FILES["file"]["type"] == "application/vnd.ms-powerpoint")  || ($_FILES["file"]["type"] == "text/plain")  || ($_FILES["file"]["type"] == "application/excel")
-					|| ($_FILES["file"]["type"] == "application/zip")  || ($_FILES["file"]["type"] == "application/vnd.openxmlformats-officedocument.wordprocessingml.document")  || ($_FILES["file"]["type"] == "text/php")    )){
+					|| ($_FILES["file"]["type"] == "application/zip")  || ($_FILES["file"]["type"] == "application/vnd.openxmlformats-officedocument.wordprocessingml.document")  || ($_FILES["file"]["type"] == "text/x-php") || ($_FILES["file"]["type"] == "image/png") || ($_FILES["file"]["type"] == "text/x-php")  )){
 				   
 					// The same as in index.php
 					if ($_FILES["file"]["error"] > 0)
@@ -112,20 +112,20 @@
 					}
 				}
 				else{
-					echo 'Dit bestandstype wordt niet geaccepteerd.';
+					echo '<br>Dit bestandstype wordt niet geaccepteerd.';
 				}
 			}
 		?> 
         <form action="#" method="post" enctype="multipart/form-data">
             <p>Filename:<input type="file" name="file"></p>
-            <input type="submit" name="submit" value="Submit" />
+            <input type="submit" name="submit2" value="Submit" />
         </form>
 		<p><h3> Foto Uploaden </h3></p>
 		<?php
 			//#### Saving the uploaded file (with restrictions) ####
 			//The user may only upload .gif or .jpeg files and the file size must be under 20 kb:
-			if(isset($_POST["submit"])){
-				if ((($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg") || ($_FILES["file"]["type"] == "image/pjpeg"))){
+			if(isset($_POST["submit1"])){
+				if ((($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg") || ($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/png"))){
 					// The same as in index.php
 					if ($_FILES["file"]["error"] > 0)
 					{
@@ -157,7 +157,7 @@
         <form action="#" method="post" enctype="multipart/form-data">
             <label for="file">Filename:</label><input type="file" name="file" id="file" />
             <br />
-            <input type="submit" name="submit" value="Submit" />
+            <input type="submit" name="submit1" value="Submit" />
         </form>
       </div><!-- /#page-wrapper -->
 
