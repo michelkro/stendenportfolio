@@ -15,7 +15,10 @@
     <link href="css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
   </head>
-
+  <?php
+  	include ('session.php')
+	/* include login sessions for the use of user information */
+  ?>
   <body>
 
     <div id="wrapper">
@@ -23,6 +26,13 @@
       <!-- Sidebar -->
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
+	      <li class ='dropdown-header'>
+                    <form  method="post" action="search_submit.php?go"  id="searchform"> 
+                    <input  type="text" name="name"> 
+                    <input  type="submit" name="submit" value="Search"> 
+                    </form> 
+              </li>
+	      <!-- Zoekbalk voor user names -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -99,6 +109,22 @@
                 <div class="fototrots">
                     <img src="img/test4.jpg" alt="test">
                 </div>
+		<?php
+			if(isset($_SESSION['login_user']) != null){
+			    echo '<li class="dropdown user-dropdown">
+		      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>'. $_SESSION['login_user'] .'<b class="caret"></b></a>
+		      <ul class="dropdown-menu">
+			<li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+			<li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
+			<li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+			<li class="divider"></li>
+			<li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
+		      </ul>
+		    </li>';
+			}else{
+			    echo '<a href="login.php" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><b class="caret"></b></a>';
+			}
+		 ?>
             </div>
         </div><!-- /.row -->
 
