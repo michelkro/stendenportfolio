@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 10 jan 2017 om 13:19
+-- Gegenereerd op: 10 jan 2017 om 19:50
 -- Serverversie: 10.1.16-MariaDB
 -- PHP-versie: 5.6.24
 
@@ -112,12 +112,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`User_ID`, `User_Type_ID`, `User_Name`, `User_Education`, `User_Course`, `User_Email`, `User_Photo`, `User_Password`) VALUES
-(1, 1, 'Cordell', 'Informatica', 'Studie Loopbaan Begeleiding', 'xcortie@gmail.com', NULL, 'TestTest'),
-(2, 7, 'Guest', NULL, NULL, '-', NULL, '-'),
-(5, 5, 'SLB', NULL, NULL, 'SLB@stenden.com', NULL, 'SLBTest'),
-(6, 6, 'Teacher', NULL, NULL, 'Teacher@stenden.com', NULL, 'TeacherTest'),
-(7, 2, 'Admin', NULL, NULL, 'Admin@stenden.com', NULL, 'AdminTest'),
-(8, 0, 'Student', NULL, NULL, 'Student@stenden.com', NULL, 'StudentTest');
+(9, 4, 'Remy Conen', NULL, NULL, 'remy.conen@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb'),
+(10, 4, 'yo', NULL, NULL, 'Robin@stenden.com', NULL, 'b085d1bf4cff8b1045750706b11f8662'),
+(11, 1, 'Cordell Stirling', NULL, NULL, 'xcortie@gmail.com', NULL, 'b085d1bf4cff8b1045750706b11f8662'),
+(12, 1, 'Michel Kroon', NULL, NULL, 'michel.kroon@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb');
 
 -- --------------------------------------------------------
 
@@ -220,7 +218,7 @@ ALTER TABLE `page`
 -- AUTO_INCREMENT voor een tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT voor een tabel `user_type`
 --
