@@ -47,6 +47,7 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">
+		  <!-- uitgecommend
             <li class="dropdown messages-dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">7</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -94,6 +95,7 @@
                 <li><a href="#">View All</a></li>
               </ul>
             </li>
+		-->
             <li class="dropdown user-dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
               <ul class="dropdown-menu">
