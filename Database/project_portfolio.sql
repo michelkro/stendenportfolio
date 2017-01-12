@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 12 jan 2017 om 13:18
+-- Gegenereerd op: 12 jan 2017 om 16:15
 -- Serverversie: 10.1.16-MariaDB
 -- PHP-versie: 5.6.24
 
@@ -28,11 +28,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `design` (
   `User_ID` int(4) NOT NULL,
-  `Header_Color` varchar(25) NOT NULL,
-  `Background` varchar(50) NOT NULL,
-  `Page_Font` varchar(50) NOT NULL,
-  `Design_Description` int(255) NOT NULL
+  `Header_Color` varchar(25) NOT NULL DEFAULT '#222222',
+  `Background` varchar(25) NOT NULL DEFAULT '#ffffff',
+  `Menu_Colour` varchar(25) NOT NULL DEFAULT '#222222',
+  `Design_Description` int(255) NOT NULL,
+  `Text_Colour` varchar(25) NOT NULL DEFAULT '#ffffff'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `design`
+--
+
+INSERT INTO `design` (`User_ID`, `Header_Color`, `Background`, `Menu_Colour`, `Design_Description`, `Text_Colour`) VALUES
+(45, '#222222', '#ffffff', '#222222', 0, '#ffffff');
 
 -- --------------------------------------------------------
 
@@ -123,11 +131,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`User_ID`, `User_Type_ID`, `User_Name`, `User_Education`, `User_Email`, `User_Photo`, `User_Password`) VALUES
-(9, 4, 'Remy Conen', 'informatica', 'remy.conen@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb'),
-(11, 1, 'Cordell Stirling', NULL, 'xcortie@gmail.com', NULL, 'b085d1bf4cff8b1045750706b11f8662'),
-(12, 1, 'Michel Kroon', NULL, 'michel.kroon@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb'),
 (13, 7, 'Guest', NULL, 'guest@email.com', NULL, '-'),
-(14, 2, 'Keven Hamhuis', NULL, 'kevin.hamhuis@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb');
+(14, 2, 'Keven Hamhuis', NULL, 'kevin.hamhuis@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb'),
+(12, 1, 'Michel Kroon', NULL, 'michel.kroon@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb'),
+(9, 4, 'Remy Conen', 'informatica', 'remy.conen@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb'),
+(45, 2, 'test', NULL, 'test@test.com', NULL, '05a671c66aefea124cc08b76ea6d30bb'),
+(11, 1, 'Cordell Stirling', NULL, 'xcortie@gmail.com', NULL, 'b085d1bf4cff8b1045750706b11f8662');
 
 -- --------------------------------------------------------
 
@@ -201,7 +210,9 @@ ALTER TABLE `slb_student`
 -- Indexen voor tabel `user`
 --
 ALTER TABLE `user`
-  ADD UNIQUE KEY `User_ID` (`User_ID`);
+  ADD PRIMARY KEY (`User_Email`),
+  ADD UNIQUE KEY `User_ID` (`User_ID`),
+  ADD UNIQUE KEY `User_Email` (`User_Email`);
 
 --
 -- Indexen voor tabel `user_type`
@@ -238,7 +249,7 @@ ALTER TABLE `slb_student`
 -- AUTO_INCREMENT voor een tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT voor een tabel `user_type`
 --
