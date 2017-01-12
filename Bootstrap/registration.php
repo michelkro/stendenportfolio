@@ -9,6 +9,7 @@ if (isset($_POST['signup'])) {
     $email2 = mysqli_real_escape_string($db, $_POST['email']);
     $password2 = mysqli_real_escape_string($db, $_POST['password']);
     $cpassword2 = mysqli_real_escape_string($db, $_POST['cpassword']);
+    
     switch ($_POST['usertype']){
         case 1: 
             $usertype = 5;
@@ -51,6 +52,10 @@ if (isset($_POST['signup'])) {
     if ($error2 == false) {
         if(mysqli_query($db, "INSERT INTO user(User_Name,User_Email,User_Password,User_Type_ID) VALUES('" . $name2 . "', '" . $email2 . "', '" . md5($password2). "', '" . $usertype . "')")) {
             $successmsg = "Successfully Registered!";
+            $id = mysqli_query($db, "SELECT `User_ID` FROM USER WHERE `User_Email` = '" . $email2 . "' ");
+            $row = mysqli_fetch_array($id,MYSQLI_ASSOC);
+            
+            $design = mysqli_query($db, "INSERT INTO design(User_ID) VALUES('" . $row['User_ID'] . "')" );
         } else {
             $errormsg = "Error in registering...Please try again later!";
         }
