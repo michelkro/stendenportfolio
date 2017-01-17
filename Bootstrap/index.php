@@ -104,7 +104,7 @@
 
           <ul class="nav navbar-nav navbar-right navbar-user">
               <li class ='dropdown-header'>
-                    <form  method="post" action="search_submit.php?go"  id="searchform"> 
+                    <form  method="post" action="search_submit.php?go"  id="searchform" style="padding-top:4%;"> 
                     <input  type="text" name="name"> 
                     <input  type="submit" name="submit" value="Search"> 
                     </form> 
@@ -115,14 +115,12 @@
                     if($_SESSION['login_user'] != null){
                         echo $row['User_Name'];
                         echo '<ul class="dropdown-menu">
-                        <li><a href=""><i class="fa fa-user"></i> Profile</a></li>
                         <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>';
                     }else {
                         echo '<li><a href="login.php"><i class="fa fa-power-off"></i> Log In</a></li>';
                     }
-                    ?> 
-                  <b class="caret"></b></a>
+                    ?>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -134,8 +132,6 @@
           <div class="col-lg-12">
             <h1>Frits Huig <small>Portfolio</small></h1>
             <ol class="breadcrumb">
-              <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
-              <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
             </ol>
           </div>
             <div id="content">

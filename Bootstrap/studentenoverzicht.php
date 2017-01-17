@@ -51,34 +51,34 @@
                 if(isset($_SESSION['login_user'])){
                     switch ($row['User_Type_ID']){
                         case 1:
-                            echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
+                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
                                 <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
                                 <li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
                                 <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
                                 <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>
                                 <li><a href="styling.php"><i class="fa fa-wrench"></i> Styling</a></li>
                                 <li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>
-                                <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
+                                <li class="active"><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
                                 <li><a href="registration.php"><i class="fa fa-list-alt"></i> Registratie </a></li>';
                             break;
                         case 2:
-                            echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
+                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
                                 <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
                                 <li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
                                 <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
                                 <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>
                                 <li><a href="styling.php"><i class="fa fa-wrench"></i> Styling</a></li>
                                 <li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>
-                                <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
+                                <li class="active"><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
                                 <li><a href="registration.php"><i class="fa fa-list-alt"></i> Registratie </a></li>';
                             break;
                         case 5:
-                            echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
+                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
                                 <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
                                 <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
                                 <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>
                                 <li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>
-                                <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
+                                <li class="active"><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
                             break;
                         case 4:
                             echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
@@ -89,10 +89,10 @@
                                 <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
                             break;
                         case 6:
-                            echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
+                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
                                 <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
                                 <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
+                                <li class="active"><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
                                 <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
                             break;
                         case 7:
@@ -111,7 +111,7 @@
 
           <ul class="nav navbar-nav navbar-right navbar-user">
               <li class ='dropdown-header'>
-                    <form  method="post" action="search_submit.php?go"  id="searchform"> 
+                    <form  method="post" action="search_submit.php?go"  id="searchform" style="padding-top:4%;"> 
                     <input  type="text" name="name"> 
                     <input  type="submit" name="submit" value="Search"> 
                     </form> 
@@ -122,14 +122,12 @@
                     if($_SESSION['login_user'] != null){
                         echo $row['User_Name'];
                         echo '<ul class="dropdown-menu">
-                        <li><a href=""><i class="fa fa-user"></i> Profile</a></li>
                         <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>';
                     }else {
                         echo '<li><a href="login.php"><i class="fa fa-power-off"></i> Log In</a></li>';
                     }
                     ?> 
-                  <b class="caret"></b></a>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->

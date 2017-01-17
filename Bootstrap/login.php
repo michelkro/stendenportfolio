@@ -80,7 +80,7 @@
 
           <ul class="nav navbar-nav navbar-right navbar-user">
               <li class ='dropdown-header'>
-                    <form  method="post" action="search_submit.php?go"  id="searchform"> 
+                    <form  method="post" action="search_submit.php?go"  id="searchform" style="padding-top:4%;">  
                     <input  type="text" name="name"> 
                     <input  type="submit" name="submit" value="Search"> 
                     </form> 
@@ -91,14 +91,12 @@
                     if($_SESSION['login_user'] != null){
                         echo $row['User_Name'];
                         echo '<ul class="dropdown-menu">
-                        <li><a href=""><i class="fa fa-user"></i> Profile</a></li>
                         <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>';
                     }else {
                         echo '<li><a href="login.php"><i class="fa fa-power-off"></i> Log In</a></li>';
                     }
                     ?> 
-                  <b class="caret"></b></a>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->

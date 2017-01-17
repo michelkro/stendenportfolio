@@ -56,14 +56,12 @@
                     if($_SESSION['login_user'] != null){
                         echo $_SESSION['login_user'];
                         echo '<ul class="dropdown-menu">
-                        <li><a href=""><i class="fa fa-user"></i> Profile</a></li>
                         <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>';
                     }else {
                         echo '<li><a href="login.php"><i class="fa fa-power-off"></i> Log In</a></li>';
                     }
                     ?> 
-                  <b class="caret"></b></a>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
