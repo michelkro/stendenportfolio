@@ -277,6 +277,23 @@ table.tablesorter thead tr th:hover {
     float:left;
 }
 
+.welkom{
+	height: 100%;
+    width: 95%;
+	margin-left: 2%;
+	margin-top: 2%;
+    text-align: center;
+	border-radius: 8px;
+    background-color: #2196F3;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	padding-bottom: 1%;
+    float:left;
+}
+
+.welkom h1{
+	color: white;
+}
+
 #eigenfotos{
 	height: 100%;
     width: 65%;
