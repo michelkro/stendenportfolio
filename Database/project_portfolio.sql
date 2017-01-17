@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.0.2
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 12 jan 2017 om 16:15
--- Serverversie: 10.1.16-MariaDB
--- PHP-versie: 5.6.24
+-- Gegenereerd op: 17 jan 2017 om 11:01
+-- Serverversie: 10.0.17-MariaDB
+-- PHP-versie: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -40,7 +40,8 @@ CREATE TABLE `design` (
 --
 
 INSERT INTO `design` (`User_ID`, `Header_Color`, `Background`, `Menu_Colour`, `Design_Description`, `Text_Colour`) VALUES
-(45, '#222222', '#ffffff', '#222222', 0, '#ffffff');
+(45, '#222222', '#ffffff', '#222222', 0, '#ffffff'),
+(46, '#222222', '#ffffff', '#222222', 0, '#ffffff');
 
 -- --------------------------------------------------------
 
@@ -131,8 +132,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`User_ID`, `User_Type_ID`, `User_Name`, `User_Education`, `User_Email`, `User_Photo`, `User_Password`) VALUES
+(46, 2, 'Alex Bijmolt', NULL, 'alex.bijmolt@student.stenden.com', NULL, '05a671c66aefea124cc08b76ea6d30bb'),
 (13, 7, 'Guest', NULL, 'guest@email.com', NULL, '-'),
-(14, 2, 'Keven Hamhuis', NULL, 'kevin.hamhuis@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb'),
+(14, 2, 'Kevin Hamhuis', NULL, 'kevin.hamhuis@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb'),
 (12, 1, 'Michel Kroon', NULL, 'michel.kroon@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb'),
 (9, 4, 'Remy Conen', 'informatica', 'remy.conen@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb'),
 (45, 2, 'test', NULL, 'test@test.com', NULL, '05a671c66aefea124cc08b76ea6d30bb'),
@@ -249,7 +251,7 @@ ALTER TABLE `slb_student`
 -- AUTO_INCREMENT voor een tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT voor een tabel `user_type`
 --
