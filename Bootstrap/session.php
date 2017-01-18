@@ -18,7 +18,8 @@
         $MenuColor_Base = $row3['Menu_Colour'];
         $TextColor_Base = $row3['Text_Colour'];
         mysqli_free_result($ses_sql3);
-        if(isset($_SESSION['portfolio'])){
+        if(isset($_GET['id'])){
+            $_SESSION['portfolio'] = $_GET['id'];
             $user_check2 = $_SESSION['portfolio'];
             $ses_sql2 = mysqli_query($db, "select * from User where User_ID = '$user_check2' ");
             $row2 = mysqli_fetch_array($ses_sql2,MYSQLI_ASSOC);
