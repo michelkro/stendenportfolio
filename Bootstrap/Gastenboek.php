@@ -1,8 +1,9 @@
 <?php
-  	include ('session.php');
-	/* include login sessions for the use of user information */
-  ?>
+include 'session.php';
+?>
+
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -17,10 +18,10 @@
 
     <!-- Add custom CSS here -->
     <style>
-                    #body{
-                        width: 50%;
-                        margin: 25px;
-                    }
+        #body{
+            width: 50%;
+            margin: 25px;
+        }
                     
     </style>
     <link href="css/sb-admin.css" rel="stylesheet">
@@ -45,90 +46,24 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <<!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav side-nav">
-            <?php 
-                if(isset($_SESSION['login_user'])){
-                    switch ($row['User_Type_ID']){
-                        case 1:
-                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
-                                <li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
-                                <li class="active"><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>
-                                <li><a href="styling.php"><i class="fa fa-wrench"></i> Styling</a></li>
-                                <li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>
-                                <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
-                                <li><a href="registration.php"><i class="fa fa-list-alt"></i> Registratie </a></li>';
-                            break;
-                        case 2:
-                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
-                                <li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
-                                <li class="active"><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>
-                                <li><a href="styling.php"><i class="fa fa-wrench"></i> Styling</a></li>
-                                <li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>
-                                <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
-                                <li><a href="registration.php"><i class="fa fa-list-alt"></i> Registratie </a></li>';
-                            break;
-                        case 5:
-                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
-                                <li class="active"><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>
-                                <li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>
-                                <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
-                            break;
-                        case 4:
-                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
-                                <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
-                                <li class="active"><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="styling.php"><i class="fa fa-wrench"></i> Styling</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
-                            break;
-                        case 6:
-                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
-                                <li class="active"><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
-                            break;
-                        case 7:
-                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
-                                <li class="active"><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
-                            break;
-                    }
-                }
-                else{
-                    echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>';
-                }
-            ?>
+        <ul class="nav navbar-nav side-nav">
+                                <li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
+				<li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
+				<li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
+            <li class="active"><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
+				<li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>
+				<li><a href="styling.php"><i class="fa fa-wrench"></i> Styling</a></li>
+				<li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>
+				<li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
           </ul>
-
           <ul class="nav navbar-nav navbar-right navbar-user">
-              <li class ='dropdown-header'>
-                    <form  method="post" action="search_submit.php?go"  id="searchform" style="padding-top:4%;"> 
-                    <input  type="text" name="name"> 
-                    <input  type="submit" name="submit" value="Search"> 
-                    </form> 
-              </li>
             <li class="dropdown user-dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-                    <?php
-                    if($_SESSION['login_user'] != null){
-                        echo $row['User_Name'];
-                        echo '<ul class="dropdown-menu">
-                        <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
-                        </ul>';
-                    }else {
-                        echo '<li><a href="login.php"><i class="fa fa-power-off"></i> Log In</a></li>';
-                    }
-                    ?> 
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+              </ul>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -147,7 +82,7 @@
           </div>
             <div id="body">
                 <?php
-                
+                echo $row2['User_ID'];
                     //------------------------------------OUTPUT----------------------------------------------------
                   
                         $connect = mysqli_connect("localhost", "root", "");
@@ -183,25 +118,32 @@
 //---------------------------------------------------------------INPUT-----------------------------------------------
 
                         if(isset($_POST["submit"])){
-
-                                    
+							if(empty($_POST['userName']) || empty($_POST['userPass'])){
+								echo "vul alles in";
+							}
+							else{
+								if (!filter_var($_POST['userEmail'], FILTER_VALIDATE_EMAIL)) {
+									echo 'vul een geldig Emailadres in';
+								}
+                                else{   
                                     $date = date("Y-n-d h:i:A");
                                     $name = $_POST["name"];
                                     $mail = $_POST["mail"];
                                     $text = $_POST["text"];
 
 
-                            $connect = mysqli_connect("localhost", "root", "");
-                            if(!$connect){
-                                DIE("Could not connect: " . mysqli_error($connect));
-                            }
-                            mysqli_select_db($connect, "project_portfolio");
-                            $query2 = "INSERT INTO Guestbook (`Name`, `E-Mail`, `Message`, `DateTime`)
-                                VALUES ('".$name."','".$mail."','".$text."','".$date."');";
-                            mysqli_query($connect, $query2) OR DIE("<br><br> Data has not been inserted");
-                            echo "<br> Het bericht is verstuurd. Zodra de eigenaar van dit gastenboek het bericht heeft goedkeurt zal het in het gastenboek worden plaatst";
-                            mysqli_close($connect);
-                            
+									$connect = mysqli_connect("localhost", "root", "");
+									if(!$connect){
+										DIE("Could not connect: " . mysqli_error($connect));
+									}
+									mysqli_select_db($connect, "project_portfolio");
+									$query2 = "INSERT INTO Guestbook (`Name`, `E-Mail`, `Message`, `DateTime`, `User_ID`)
+										VALUES ('".$name."','".$mail."','".$text."','".$date."','".$row2['User_ID']."');";
+									mysqli_query($connect, $query2) OR DIE("<br><br> Data has not been inserted");
+									echo "<br> Het bericht is verstuurd. Zodra de eigenaar van dit gastenboek het bericht heeft goedkeurt zal het in het gastenboek worden plaatst";
+									mysqli_close($connect);
+								}
+							} 
                         }
                     ?>
 

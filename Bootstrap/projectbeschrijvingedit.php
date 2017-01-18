@@ -56,6 +56,7 @@
                     if($_SESSION['login_user'] != null){
                         echo $_SESSION['login_user'];
                         echo '<ul class="dropdown-menu">
+                        <li><a href=""><i class="fa fa-user"></i> Profile</a></li>
                         <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>';
                     }else {
@@ -70,12 +71,13 @@
 
       <div id="page-wrapper">
 		<?php
-			//echo $_GET['Project'];
+			echo $_GET['Project'];
 			$array = explode("/", $_GET['Project']);
 			$array2 = explode(".", $array['2']);
+			print_r($array);
 			echo  '<p><a href="fotogalerij.php"><input type="submit" value="terug naar projecten"></a>';
-			echo  '<input type="submit" value="terug naar project '.$array2[0].'"></p>';
-			echo '<p>'.$array2[0].'</p>';
+			echo  '<a href="projectbescrijving.php?Project='.$_GET['Project'].'"><input type="submit" value="terug naar project '.$array2[0].'"></a></p>';
+			echo '<h1>'.$array2[0].'</h1>';
 			echo "<p><img src='projects/".$array[1]."/projectpicture/".$array[2]."'></p>";
 			
 			$DBConnect = mysqli_connect("localhost", "root", "");
@@ -87,7 +89,7 @@
 					echo "<p>Druk op edit om een beschrijving van het project te geven.</p>";
 				}else{
 					$TableName = "projects";
-					$SQLstring = "SELECT Project_Description FROM ".$TableName." WHERE User_ID ='".$_SESSION['portfolio']."' AND Project_Name = '".$array[0];
+					$SQLstring = "SELECT Project_Description FROM ".$TableName." WHERE User_ID ='".$_SESSION['login_user']."' AND Project_Name = '".$array[0];
 					$QueryResult = mysqli_query($DBConnect, $SQLstring);
 					if (mysqli_num_rows($QueryResult) == 0){
 						echo "<p>There are no textfields!</p>";
@@ -125,7 +127,7 @@
 							
 							$Textarea = stripslashes($_POST["projectbeschrijving"]);
 							$TableName = "projects";
-							$SQLstring = "UPDATE ".$TableName." SET Project_Description = '". $Textarea."' WHERE User_ID ='".$_SESSION['portfolio']."' AND Project_Name = '".$array[0];
+							$SQLstring = "UPDATE ".$TableName." SET Project_Description = '". $Textarea."' WHERE User_ID ='".$_SESSION['login_user']."' AND Project_Name = '".$array[0];
 							$QueryResult = mysqli_query($DBConnect, $SQLstring);
 							if ($QueryResult === FALSE)
 							{
