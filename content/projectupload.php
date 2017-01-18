@@ -1,14 +1,6 @@
-<?php
-   session_start();
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        
-    </head>
-    <body>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
         <?php
 		
 		if(isset($_POST["submit1"])){
@@ -110,5 +102,6 @@
 			<p><input type="submit" name="submit1" value="upload project"></p>
 		</form>
 		<p><a href="fotogalerij.php"><input type="submit" value="back"></a></p>
-    </body>
-</html>
+		</div>
+	</div>
+</div>
