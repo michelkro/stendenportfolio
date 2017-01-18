@@ -84,16 +84,20 @@
 		<?php
 		
 		$dir = 'projects/'.$_SESSION['login_user'].'/projectpicture/';
-		$files = scandir($dir);
-		
-		rsort($files);
-		foreach ($files as $file) {
-			if ($file != '.' && $file != '..') {
-				echo $file;
-				echo '<a href="projectbescrijving.php?Project=projects/'.$_SESSION['login_user'].'/'.$file.'"> >"<img src="' . $dir . $file . '"/></a>';
+		if(file_exists($dir) == FALSE){
+			echo 'Er is nog geen project geupload.';
+		}
+		else{
+			$files = scandir($dir);
+			
+			rsort($files);
+			foreach ($files as $file) {
+				if ($file != '.' && $file != '..') {
+					echo $file;
+					echo '<a href="projectbescrijving.php?Project=projects/'.$_SESSION['login_user'].'/'.$file.'"> >"<img src="' . $dir . $file . '"/></a>';
+				}
 			}
 		}
-		
 		
 		
 		

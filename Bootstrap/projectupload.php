@@ -22,7 +22,7 @@
 				echo "you must be logged in to upload a project";
 			}
 		else{
-			if(empty($_POST['projectName']) || empty($_POST['file'])|| empty($_POST['upload[]'])){
+			if(empty($_POST['projectName'])){
                 echo "vul alles in";
             }
 			else{
