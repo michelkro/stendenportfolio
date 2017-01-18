@@ -10,6 +10,10 @@ For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap
 
 /* Global Styles */
 
+<?php
+header("Content-type: text/css");
+include('session.php');
+?>
 #header{
 	background-image: url("header.jpg")
 }

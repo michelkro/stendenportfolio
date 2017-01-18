@@ -104,7 +104,7 @@
 
           <ul class="nav navbar-nav navbar-right navbar-user">
               <li class ='dropdown-header'>
-                    <form  method="post" action="search_submit.php?go"  id="searchform"> 
+                    <form  method="post" action="search_submit.php?go"  id="searchform" style="padding-top:4%;"> 
                     <input  type="text" name="name"> 
                     <input  type="submit" name="submit" value="Search"> 
                     </form> 
@@ -115,14 +115,12 @@
                     if($_SESSION['login_user'] != null){
                         echo $row['User_Name'];
                         echo '<ul class="dropdown-menu">
-                        <li><a href=""><i class="fa fa-user"></i> Profile</a></li>
                         <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>';
                     }else {
                         echo '<li><a href="login.php"><i class="fa fa-power-off"></i> Log In</a></li>';
                     }
-                    ?> 
-                  <b class="caret"></b></a>
+                    ?>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -130,51 +128,114 @@
 
       <div id="page-wrapper">
 
-        <div class="row">
-          <div class="col-lg-12">
-            <h1>Frits Huig <small>Portfolio</small></h1>
-            <ol class="breadcrumb">
-              <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
-              <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
-            </ol>
-          </div>
-            <div id="content">
-                <div class="info">
-					<div class="pasfoto">
-						<img src="img/Pasfoto.jpg" alt="pasfoto">
-					</div>
-                    <div class="gegevens">
-                        <h2>Personelijke gegevens</h2>
-                        <p>Adres: Ovaalstraat 33</p>
-                        <p>Woonplaats: ovaalland</p>
-                        <p>telefoon: 0591-543344</p>
-                        <p>E-mail: Frits.Huig@huigelaartje.com </p>
-                        <p>Leeftijd: 22 jaar</p>
-                        <p>Auto?: Ja</p>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Frits Huig <small>Portfolio</small></h1>
+                        <ol class="breadcrumb">
+                            <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
+                            <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
+                        </ol>
                     </div>
-                </div>
-                <div class="overjouzelf">
-                    <h1>Welkom op mijn portfolio</h1>
-                    <p>Mijn naam is Frits Huigen. Ik ben afgestuddeerd op het potocollege ik hoop dat u door mijn portfolio meer over mij te weten komt.</p>
-                </div>
-				<div id="eigenfotos">
-					<div class="fototrots">
-						<img src="img/test1.jpg" alt="test">
-					</div>
-					<div class="fototrots">
-						<img src="img/test2.png" alt="test">
-					</div>
-					<div class="fototrots">
-						<img src="img/test3.png" alt="test">
-					</div>
-					<div class="fototrots">
-						<img src="img/test4.jpg" alt="test">
-					</div>
-				</div>
-            </div>
-        </div><!-- /.row -->
+                    <div id="content">
+                        <div class="info">
+                            <div class="pasfoto">
+                                <img src="img/Pasfoto.jpg" alt="pasfoto">
+                            </div>
+                            <div class="gegevens">
+                                <h2>Personelijke gegevens</h2>
+                       <?php
+                            $DBConnect = mysqli_connect("localhost", "root", "");
+                            if ($DBConnect === FALSE)
+                            {
+                                echo "<p>Unable to connect to the database server.</p>" . "<p>Error code " . mysqli_error() . ": " . mysqli_error() . "</p>";
+                            } else
+                            {
+                                $DBName = "project_portfolio";
+                                if (!mysqli_select_db($DBConnect, $DBName))
+                                {
+                                    echo "<p>Er is geen cv tekst</p>";
+                                } else
+                                {
+                                    $TableName = "Text_CV";
+                                    $SQLstring = "SELECT * FROM $TableName";
+                                    $QueryResult = mysqli_query($DBConnect, $SQLstring);
+                                    if (mysqli_num_rows($QueryResult) == 0)
+                                    {
+                                        echo "<p>There are no textfields!</p>";
+                                    } else
+                                    {
 
-      </div><!-- /#page-wrapper -->
+                                        while ($Row = mysqli_fetch_assoc($QueryResult))
+                                        {
+                                            echo "<p>{$Row['Persoonlijke_Gegevens']}</p>";
+                                            echo "<p><a href ='indexpersoonlijkegegevens_edit.php?cvID=" . $Row['cvID'] . "'>Edit</a><p>";
+                                        }
+                                    }
+                                    mysqli_free_result($QueryResult);
+                                }
+                                mysqli_close($DBConnect);
+                            }
+
+                           
+                            ?> 
+                            </div>
+                        </div>
+                        <div class="overjouzelf">
+                            <h1>Welkom op mijn portfolio</h1>
+                       <?php
+                            $DBConnect = mysqli_connect("localhost", "root", "");
+                            if ($DBConnect === FALSE)
+                            {
+                                echo "<p>Unable to connect to the database server.</p>" . "<p>Error code " . mysqli_error() . ": " . mysqli_error() . "</p>";
+                            } else
+                            {
+                                $DBName = "project_portfolio";
+                                if (!mysqli_select_db($DBConnect, $DBName))
+                                {
+                                    echo "<p>Er is geen cv tekst</p>";
+                                } else
+                                {
+                                    $TableName = "Text_CV";
+                                    $SQLstring = "SELECT * FROM $TableName";
+                                    $QueryResult = mysqli_query($DBConnect, $SQLstring);
+                                    if (mysqli_num_rows($QueryResult) == 0)
+                                    {
+                                        echo "<p>There are no textfields!</p>";
+                                    } else
+                                    {
+
+                                        while ($Row = mysqli_fetch_assoc($QueryResult))
+                                        {
+                                            echo "<p>{$Row['Voorsteltekst']}</p>";
+                                            echo "<p><a href ='indexvoorsteltekst_edit.php?cvID=" . $Row['cvID'] . "'>Edit</a><p>";
+                                        }
+                                    }
+                                    mysqli_free_result($QueryResult);
+                                }
+                                mysqli_close($DBConnect);
+                            }
+
+                           
+                            ?>                   
+                        </div>
+                        <div id="eigenfotos">
+                            <div class="fototrots">
+                                <img src="img/test1.jpg" alt="test">
+                            </div>
+                            <div class="fototrots">
+                                <img src="img/test2.png" alt="test">
+                            </div>
+                            <div class="fototrots">
+                                <img src="img/test3.png" alt="test">
+                            </div>
+                            <div class="fototrots">
+                                <img src="img/test4.jpg" alt="test">
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.row -->
+
+            </div><!-- /#page-wrapper -->
 
     </div><!-- /#wrapper -->
 

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.0.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 17 jan 2017 om 16:01
--- Serverversie: 10.0.17-MariaDB
--- PHP-versie: 5.6.14
+-- Gegenereerd op: 13 jan 2017 om 12:39
+-- Serverversie: 10.1.16-MariaDB
+-- PHP-versie: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -31,31 +31,16 @@ CREATE TABLE `design` (
   `Header_Color` varchar(25) NOT NULL DEFAULT '#222222',
   `Background` varchar(25) NOT NULL DEFAULT '#ffffff',
   `Menu_Colour` varchar(25) NOT NULL DEFAULT '#222222',
-  `Design_Description` int(255) NOT NULL,
-  `Text_Colour` varchar(25) NOT NULL DEFAULT '#ffffff',
-  `Font` varchar(25) NOT NULL DEFAULT 'arial'
+  `Text_Colour` varchar(25) NOT NULL DEFAULT '#ffffff'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `design`
 --
 
-INSERT INTO `design` (`User_ID`, `Header_Color`, `Background`, `Menu_Colour`, `Design_Description`, `Text_Colour`, `Font`) VALUES
-(45, '#222222', '#ffffff', '#222222', 0, '#ffffff', 'arial'),
-(46, '#ADFF39', '#FFFFFF', '#092203', 0, '#FFFFFF', 'arial');
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `file`
---
-
-CREATE TABLE `file` (
-  `File_ID` int(4) NOT NULL,
-  `Page_ID` int(4) NOT NULL,
-  `User_ID` int(4) NOT NULL,
-  `File_Description` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `design` (`User_ID`, `Header_Color`, `Background`, `Menu_Colour`, `Text_Colour`) VALUES
+(45, '#222222', '#ffffff', '#222222', '#ffffff'),
+(46, '#222222', '#ffffff', '#222222', '#ffffff');
 
 -- --------------------------------------------------------
 
@@ -94,10 +79,21 @@ CREATE TABLE `guestbook` (
 
 CREATE TABLE `page` (
   `Page_ID` int(4) NOT NULL,
-  `Design_ID` int(4) NOT NULL,
   `User_ID` int(4) NOT NULL,
   `Introduction` varchar(255) DEFAULT NULL,
   `CV` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `projects`
+--
+
+CREATE TABLE `projects` (
+  `Project_ID` int(11) NOT NULL,
+  `Project_Description` varchar(2500) NOT NULL,
+  `User_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -111,29 +107,6 @@ CREATE TABLE `slb_student` (
   `SLB_User_ID` int(11) NOT NULL,
   `Student_User_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `text_cv`
---
-
-CREATE TABLE `text_cv` (
-  `User_ID` int(11) NOT NULL,
-  `cvID` int(11) NOT NULL,
-  `Textarea` varchar(1500) DEFAULT NULL,
-  `Werkervaring` varchar(1500) DEFAULT NULL,
-  `Opleidingen` varchar(1500) DEFAULT NULL,
-  `Persoonlijke_Gegevens` varchar(500) DEFAULT NULL,
-  `Voorsteltekst` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Gegevens worden geëxporteerd voor tabel `text_cv`
---
-
-INSERT INTO `text_cv` (`User_ID`, `cvID`, `Textarea`, `Werkervaring`, `Opleidingen`, `Persoonlijke_Gegevens`, `Voorsteltekst`) VALUES
-(0, 1, 'Naam: Woonplaats: <br>\r\nAdres: <br>\r\nHuidige werknemer: <br>', 'Gewerkt bij IT World 2011-2013: <br>\r\nGewerkt bij computer protocol 2013-2014: <br>\r\nWerkt bij popidopi 2015-2017: <br>\r\nWerkt bij beheer.com 2006-2017: <br>', 'Studie 1998-2002: <br>\r\nICT web design gestudeerd 2002-2006: <br>\r\nICT beheer gestudeerd <br>', 'Adres: Ovaalstraat 33 <br>\r\nWoonplaats: ovaalland<br> \r\nTelefoon: 0591-543344 <br>\r\nE-mail: Frits.Huig@huigelaartje.com <br>\r\nLeeftijd: 22 jaar <br>\r\nAuto?: Ja <br>', 'Mijn naam is Frits Huigen. Ik ben afgestudeerd op het pothocollege ik hoop dat u door mijn portfolio meer over mij te weten komt.');
 
 -- --------------------------------------------------------
 
@@ -156,11 +129,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`User_ID`, `User_Type_ID`, `User_Name`, `User_Education`, `User_Email`, `User_Photo`, `User_Password`) VALUES
-(46, 2, 'Alex Bijmolt', NULL, 'alex.bijmolt@student.stenden.com', NULL, '05a671c66aefea124cc08b76ea6d30bb'),
 (13, 7, 'Guest', NULL, 'guest@email.com', NULL, '-'),
-(14, 7, 'Kevin Hamhuis', NULL, 'kevin.hamhuis@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb'),
+(14, 2, 'Keven Hamhuis', NULL, 'kevin.hamhuis@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb'),
 (12, 1, 'Michel Kroon', NULL, 'michel.kroon@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb'),
 (9, 4, 'Remy Conen', 'informatica', 'remy.conen@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb'),
+(46, 2, 'Robin de Boer', NULL, 'robin.boer@student.stenden.com', NULL, '31d674be46e1ba6b54388a671c09accb'),
 (45, 2, 'test', NULL, 'test@test.com', NULL, '05a671c66aefea124cc08b76ea6d30bb'),
 (11, 1, 'Cordell Stirling', NULL, 'xcortie@gmail.com', NULL, 'b085d1bf4cff8b1045750706b11f8662');
 
@@ -202,12 +175,6 @@ ALTER TABLE `design`
   ADD UNIQUE KEY `Design_ID` (`User_ID`);
 
 --
--- Indexen voor tabel `file`
---
-ALTER TABLE `file`
-  ADD UNIQUE KEY `File_ID` (`File_ID`);
-
---
 -- Indexen voor tabel `grade`
 --
 ALTER TABLE `grade`
@@ -226,17 +193,18 @@ ALTER TABLE `page`
   ADD UNIQUE KEY `Page_ID` (`Page_ID`);
 
 --
+-- Indexen voor tabel `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`Project_ID`),
+  ADD UNIQUE KEY `Project_ID` (`Project_ID`);
+
+--
 -- Indexen voor tabel `slb_student`
 --
 ALTER TABLE `slb_student`
   ADD PRIMARY KEY (`Connection_ID`),
   ADD UNIQUE KEY `Connection_ID` (`Connection_ID`);
-
---
--- Indexen voor tabel `text_cv`
---
-ALTER TABLE `text_cv`
-  ADD PRIMARY KEY (`cvID`);
 
 --
 -- Indexen voor tabel `user`
@@ -258,11 +226,6 @@ ALTER TABLE `user_type`
 --
 
 --
--- AUTO_INCREMENT voor een tabel `file`
---
-ALTER TABLE `file`
-  MODIFY `File_ID` int(4) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT voor een tabel `guestbook`
 --
 ALTER TABLE `guestbook`
@@ -273,15 +236,15 @@ ALTER TABLE `guestbook`
 ALTER TABLE `page`
   MODIFY `Page_ID` int(4) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT voor een tabel `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `Project_ID` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT voor een tabel `slb_student`
 --
 ALTER TABLE `slb_student`
   MODIFY `Connection_ID` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT voor een tabel `text_cv`
---
-ALTER TABLE `text_cv`
-  MODIFY `cvID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT voor een tabel `user`
 --

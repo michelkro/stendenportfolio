@@ -1,4 +1,9 @@
+<?php
+include 'session.php';
+?>
+
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -13,10 +18,10 @@
 
     <!-- Add custom CSS here -->
     <style>
-                    #body{
-                        width: 50%;
-                        margin: 25px;
-                    }
+        #body{
+            width: 50%;
+            margin: 25px;
+        }
                     
     </style>
     <link href="css/sb-admin.css" rel="stylesheet">
@@ -77,7 +82,7 @@
           </div>
             <div id="body">
                 <?php
-                
+                echo $row2['User_ID'];
                     //------------------------------------OUTPUT----------------------------------------------------
                   
                         $connect = mysqli_connect("localhost", "root", "");
@@ -113,25 +118,32 @@
 //---------------------------------------------------------------INPUT-----------------------------------------------
 
                         if(isset($_POST["submit"])){
-
-                                    
+							if(empty($_POST['userName']) || empty($_POST['userPass'])){
+								echo "vul alles in";
+							}
+							else{
+								if (!filter_var($_POST['userEmail'], FILTER_VALIDATE_EMAIL)) {
+									echo 'vul een geldig Emailadres in';
+								}
+                                else{   
                                     $date = date("Y-n-d h:i:A");
                                     $name = $_POST["name"];
                                     $mail = $_POST["mail"];
                                     $text = $_POST["text"];
 
 
-                            $connect = mysqli_connect("localhost", "root", "");
-                            if(!$connect){
-                                DIE("Could not connect: " . mysqli_error($connect));
-                            }
-                            mysqli_select_db($connect, "project_portfolio");
-                            $query2 = "INSERT INTO Guestbook (`Name`, `E-Mail`, `Message`, `DateTime`)
-                                VALUES ('".$name."','".$mail."','".$text."','".$date."');";
-                            mysqli_query($connect, $query2) OR DIE("<br><br> Data has not been inserted");
-                            echo "<br> Het bericht is verstuurd. Zodra de eigenaar van dit gastenboek het bericht heeft goedkeurt zal het in het gastenboek worden plaatst";
-                            mysqli_close($connect);
-                            
+									$connect = mysqli_connect("localhost", "root", "");
+									if(!$connect){
+										DIE("Could not connect: " . mysqli_error($connect));
+									}
+									mysqli_select_db($connect, "project_portfolio");
+									$query2 = "INSERT INTO Guestbook (`Name`, `E-Mail`, `Message`, `DateTime`, `User_ID`)
+										VALUES ('".$name."','".$mail."','".$text."','".$date."','".$row2['User_ID']."');";
+									mysqli_query($connect, $query2) OR DIE("<br><br> Data has not been inserted");
+									echo "<br> Het bericht is verstuurd. Zodra de eigenaar van dit gastenboek het bericht heeft goedkeurt zal het in het gastenboek worden plaatst";
+									mysqli_close($connect);
+								}
+							} 
                         }
                     ?>
 

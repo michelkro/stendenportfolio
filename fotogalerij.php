@@ -83,21 +83,16 @@
         </div><!-- /.row -->
 		<?php
 		
-		$dir = 'projects/'.$_SESSION['login_user'].'/projectpicture/';
-		if(file_exists($dir) == FALSE){
-			echo 'Er is nog geen project geupload.';
-		}
-		else{
-			$files = scandir($dir);
-			
-			rsort($files);
-			foreach ($files as $file) {
-				if ($file != '.' && $file != '..') {
-					echo $file;
-					echo '<a href="projectbescrijving.php?Project=projects/'.$_SESSION['login_user'].'/'.$file.'"> >"<img src="' . $dir . $file . '"/></a>';
-				}
+		$dir = 'projects/'.$row2['User_ID'].'/projectpicture/';
+		$files = scandir($dir);
+		
+		rsort($files);
+		foreach ($files as $file) {
+			if ($file != '.' && $file != '..') {
+				echo '<a href="projectbescrijving.php?Project=projects/'.$row2['User_ID'].'/'.$file.'"> >"<img src="' . $dir . $file . '"/></a>';
 			}
 		}
+		
 		
 		
 		

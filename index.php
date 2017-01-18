@@ -1,8 +1,3 @@
-<?php 
-    include ('session.php');
-    include ('GetColor.php');
-?>
-<script src="jscolor.js"></script>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Variable Naam</title>
+    
+    <title>Stenden Portfolio</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -20,7 +15,10 @@
     <link href="css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
   </head>
-
+  <?php
+  	include ('session.php');
+	/* include login sessions for the use of user information */
+  ?>
   <body>
 
     <div id="wrapper">
@@ -28,6 +26,7 @@
       <!-- Sidebar -->
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
+	      <!-- Zoekbalk voor user names -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -35,7 +34,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Variabele Naam</a>
+          <a class="navbar-brand" href="index.php"> Stenden Portfolio </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -45,55 +44,75 @@
                 if(isset($_SESSION['login_user'])){
                     switch ($row['User_Type_ID']){
                         case 1:
-                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
+                            echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
                                 <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
-                                <li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
                                 <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>
-                                <li class="active"><a href="styling.php"><i class="fa fa-wrench"></i> Styling</a></li>
-                                <li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>
                                 <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
                                 <li><a href="registration.php"><i class="fa fa-list-alt"></i> Registratie </a></li>';
+                            if(isset($_SESSION['portfolio'])){
+                                echo '<li <a href="home.php"><i class="fa fa-home"></i> ' . row2['User_Name'] . '</a></li>';
+                                echo '<li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>';
+                                echo '<li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>'
+                                . '<li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>';
+                            }
                             break;
                         case 2:
-                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
+                            echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
                                 <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
-                                <li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
                                 <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>
-                                <li class="active"><a href="styling.php"><i class="fa fa-wrench"></i> Styling</a></li>
-                                <li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>
                                 <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
                                 <li><a href="registration.php"><i class="fa fa-list-alt"></i> Registratie </a></li>';
+                            if(isset($_SESSION['portfolio'])){
+                                echo '<li <a href="home.php"><i class="fa fa-home"></i> ' . row2['User_Name'] . '</a></li>';
+                                echo '<li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>';
+                                echo '<li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>'
+                                . '<li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>';
+                            }
                             break;
                         case 5:
                             echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
                                 <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
                                 <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>
-                                <li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>
                                 <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
+                            if(isset($_SESSION['portfolio'])){
+                                echo '<li <a href="home.php"><i class="fa fa-home"></i> ' . row2['User_Name'] . '</a></li>';
+                                echo '<li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>';
+                                echo '<li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
+                                echo '<li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>'; 
+                                }
                             break;
                         case 4:
-                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
+                            echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
                                 <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
                                 <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li class="active"><a href="styling.php"><i class="fa fa-wrench"></i> Styling</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
+                                <li><a href="styling.php"><i class="fa fa-wrench"></i> Styling</a></li>';
+                            if(isset($_SESSION['portfolio'])){
+                                echo '<li <a href="home.php"><i class="fa fa-home"></i> ' . row2['User_Name'] . '</a></li>';
+                                echo '<li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>';
+                                echo '<li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
+                            }
                             break;
                         case 6:
                             echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
                                 <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
                                 <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
+                                <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
+                            if(isset($_SESSION['portfolio'])){
+                                echo '<li <a href="home.php"><i class="fa fa-home"></i> ' . row2['User_Name'] . '</a></li>';
+                                echo '<li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>';
+                                echo '<li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
+                            }
                             break;
                         case 7:
                             echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
                                 <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
                                 <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
+                                <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
+                            if(isset($_SESSION['portfolio'])){
+                                echo '<li <a href="home.php"><i class="fa fa-home"></i> ' . row2['User_Name'] . '</a></li>';
+                                echo '<li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>';
+                                echo '<li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
+                            }
                             break;
                     }
                 }
@@ -105,7 +124,7 @@
 
           <ul class="nav navbar-nav navbar-right navbar-user">
               <li class ='dropdown-header'>
-                    <form  method="post" action="search_submit.php?go"  id="searchform" style="padding-top:4%;"> 
+                    <form  method="post" action="search_submit.php?go"  id="searchform"> 
                     <input  type="text" name="name"> 
                     <input  type="submit" name="submit" value="Search"> 
                     </form> 
@@ -116,12 +135,14 @@
                     if($_SESSION['login_user'] != null){
                         echo $row['User_Name'];
                         echo '<ul class="dropdown-menu">
+                        <li><a href=""><i class="fa fa-user"></i> Profile</a></li>
                         <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>';
                     }else {
                         echo '<li><a href="login.php"><i class="fa fa-power-off"></i> Log In</a></li>';
                     }
                     ?> 
+                  <b class="caret"></b></a>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -131,39 +152,48 @@
 
         <div class="row">
           <div class="col-lg-12">
-            <h1>Stijl je portfolio</h1>
+            <h1>Frits Huig <small>Portfolio</small></h1>
             <ol class="breadcrumb">
-              <li><a href="index.html"><i class="icon-dashboard"></i> Hoofdpagina</a></li>
+              <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
               <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
             </ol>
           </div>
+            <div id="content">
+                <div class="info">
+					<div class="pasfoto">
+						<img src="img/Pasfoto.jpg" alt="pasfoto">
+					</div>
+                    <div class="gegevens">
+                        <h2>Personelijke gegevens</h2>
+                        <p>Adres: Ovaalstraat 33</p>
+                        <p>Woonplaats: ovaalland</p>
+                        <p>telefoon: 0591-543344</p>
+                        <p>E-mail: Frits.Huig@huigelaartje.com </p>
+                        <p>Leeftijd: 22 jaar</p>
+                        <p>Auto?: Ja</p>
+                    </div>
+                </div>
+                <div class="overjouzelf">
+                    <h1>Welkom op mijn portfolio</h1>
+                    <p>Mijn naam is Frits Huigen. Ik ben afgestuddeerd op het potocollege ik hoop dat u door mijn portfolio meer over mij te weten komt.</p>
+                </div>
+				<div id="eigenfotos">
+					<div class="fototrots">
+						<img src="img/test1.jpg" alt="test">
+					</div>
+					<div class="fototrots">
+						<img src="img/test2.png" alt="test">
+					</div>
+					<div class="fototrots">
+						<img src="img/test3.png" alt="test">
+					</div>
+					<div class="fototrots">
+						<img src="img/test4.jpg" alt="test">
+					</div>
+				</div>
+            </div>
         </div><!-- /.row -->
-		<div class="kopjes" style="font-size: 15pt;"><p>Kies uw kleur</p></div>
-                <form method="POST" action="submitcolor.php">
-			<div id="verschillendekleuren">
-				<div class="kleur">
-					<div class="kopjes" style="font-size: 15pt;"><p>Header</p></div>
-					<input name="header" type="hidden" id="color1" value="<?php echo $HeaderColor; ?>">
-					<button class="jscolor {valueElement: 'color1'}" style="width:50px; height:50px;"></button>
-				</div>
-				<div class="kleur">
-					<div class="kopjes" style="font-size: 15pt;"><p>Menu</p></div>
-					<input name="menu" type="hidden" id="color2" value="<?php echo $MenuColor; ?>">
-					<button class="jscolor {valueElement: 'color2'}" style="width:50px; height:50px;"></button>
-				</div>
-				<div class="kleur">
-					<div class="kopjes" style="font-size: 15pt;"><p>Achtergrond</p></div>
-					<input name="background" type="hidden" id="color3" value="<?php echo $BackgroundColor; ?>">
-					<button class="jscolor {valueElement: 'color3'}" style="width:50px; height:50px;"></button>
-				</div>
-				<div class="kleur">
-					<div class="kopjes" style="font-size: 15pt;"><p>Text</p></div>
-					<input name="text" type="hidden" id="color4" value="<?php echo $TextColor; ?>">
-					<button class="jscolor {valueElement: 'color4'}" style="width:50px; height:50px;"></button> <br>
-				</div>	
-			</div>
-			<input type="submit" value="Kleuren Updaten" class="margin" name="Submit">
-		</form>
+
       </div><!-- /#page-wrapper -->
 
     </div><!-- /#wrapper -->
