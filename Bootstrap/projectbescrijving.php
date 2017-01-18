@@ -56,12 +56,14 @@
                     if($_SESSION['login_user'] != null){
                         echo $_SESSION['login_user'];
                         echo '<ul class="dropdown-menu">
+                        <li><a href=""><i class="fa fa-user"></i> Profile</a></li>
                         <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>';
                     }else {
                         echo '<li><a href="login.php"><i class="fa fa-power-off"></i> Log In</a></li>';
                     }
                     ?> 
+                  <b class="caret"></b></a>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -69,12 +71,12 @@
 
       <div id="page-wrapper">
 		<?php
-			//echo $_GET['Project'];
+			
 			$array = explode("/", $_GET['Project']);
 			$array2 = explode(".", $array['2']);
 			echo  '<p><a href="fotogalerij.php"><input type="submit" value="terug naar projecten"></a>';
-			echo  '<a href="projectbeschrijvingedit.php?Project=projects/'.$_SESSION['portfolio'].'/'.$file.'"> <input type="submit" value="edit"></a></p>';
-			echo '<p>'.$array2[0].'</p>';
+			echo  '<a href="projectbeschrijvingedit.php?Project='.$_GET['Project'].'"> <input type="submit" value="edit"></a></p>';
+			echo '<h1>'.$array2[0].'</h1>';
 			echo "<p><img src='projects/".$array[1]."/projectpicture/".$array[2]."'></p>";
 			
 			$DBConnect = mysqli_connect("localhost", "root", "");
@@ -85,8 +87,9 @@
 				if (!mysqli_select_db($DBConnect, $DBName)){
 					echo "<p>Druk op edit om een beschrijving van het project te geven.</p>";
 				}else{
+					
 					$TableName = "projects";
-					$SQLstring = "SELECT Project_Description FROM $TableName WHERE User_ID ='".$row2['User_ID']."' AND Project_Name = '".$array[0];
+					$SQLstring = "SELECT Project_Description FROM $TableName WHERE Project_Name = '".$array[0];
 					$QueryResult = mysqli_query($DBConnect, $SQLstring);
 					if (mysqli_num_rows($QueryResult) == 0){
 						echo "<p>There are no textfields!</p>";
@@ -96,8 +99,9 @@
 							echo $Row['Project_Description'];
 
 						}
+						mysqli_free_result($QueryResult);
 					}
-					mysqli_free_result($QueryResult);
+					
 				}
 				mysqli_close($DBConnect);
             }
@@ -112,6 +116,7 @@
 			if(isset($_POST["download"])){
 			//lijst met bestanden in een folder
 			// van vele bestanden een zip maken
+			
 			$dir = "projects/".$array[1]."/".$array2[0]."/";
 			$files = scandir($dir);rsort($files);
 			$zipname = $array2[0].'.zip';
