@@ -1,15 +1,10 @@
 <?php
     header("Content-type: text/css");
     include '../content/session.php';
-    if(isset($_SESSION['login_user'])){
-        $Background = $BackgroundColor_Base;
-        $Hoveractivemenu = $HoverActiveMenu_Base;
-        $Menu = $MenuColor_Base;
-    }else{
-        $Background = 'lightgray';
-        $Hoveractivemenu = 'black';
-        $Menu = 'darkgray';
-    }
+
+    $Background = $BackgroundColor_Home;
+    $Menu = $MenuColor_Home;
+    $Hoveractivemenu = $HoverActiveMenu_Home;
 ?>
  
 html{

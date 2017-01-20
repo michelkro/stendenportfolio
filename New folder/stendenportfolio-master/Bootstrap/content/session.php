@@ -1,6 +1,7 @@
 <?php
     include('config.php');
     session_start();
+
     if(!isset($_SESSION['login_user'])){
         $_SESSION['login_user'] = null;
     }else{
@@ -15,8 +16,10 @@
         $row3 = mysqli_fetch_array($ses_sql3,MYSQLI_ASSOC);
         $HeaderColor_Base = $row3['Header_Color'];
         $BackgroundColor_Base = $row3['Background'];
+        $HoverActiveMenu_Base = $row3['Menu_Active'];
         $MenuColor_Base = $row3['Menu_Colour'];
         $TextColor_Base = $row3['Text_Colour'];
+        $Font_Base = $row3['Font'];
         mysqli_free_result($ses_sql3);
         if(isset($_SESSION['portfolio'])){
             $user_check2 = $_SESSION['portfolio'];
@@ -27,8 +30,10 @@
             $Row = mysqli_fetch_assoc($SQLstring);
             $HeaderColor_Home = $Row['Header_Color'];
             $BackgroundColor_Home = $Row['Background'];
+            $HoverActiveMenu_Home = $Row['Menu_Active'];
             $MenuColor_Home = $Row['Menu_Colour'];
             $TextColor_Home = $Row['Text_Colour'];
+            $Font_Home = $Row['Font'];
             mysqli_free_result($SQLstring);
         }
     }

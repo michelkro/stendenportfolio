@@ -59,6 +59,29 @@
 							//Upload the file into the temp dir
 							if(move_uploaded_file($tmpFilePath, $newFilePath)) {
 
+                                $DBConnect = mysqli_connect("localhost", "root", "");
+                                if ($DBConnect === FALSE){
+                                    echo "<p>Unable to connect to the database server.</p>" . "<p>Error code " . mysqli_error() . ": " . mysqli_error() . "</p>";
+                                } else{
+                                    $DBName = "project_portfolio";
+									if (!mysqli_select_db($DBConnect, $DBName)){
+                                        echo "<p>error</p>";
+                                    }else{
+                                        $TableName = "projects";
+                                        $SQLstring = "INSERT INTO project (User_ID, Project_Name, SLB_Opdracht) VALUES('".$_SESSION['login_user']."', '".$projectName."', '".$_POST['SLB']."')";
+                                        mysqli_query($DBConnect, $SQLstring);
+
+
+                                    }
+                                    mysqli_close($DBConnect);
+                                }                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
 							}
 							else{die;}
 						  }
@@ -67,22 +90,7 @@
 							}
 							else{}
 						
-						$DBConnect = mysqli_connect("localhost", "root", "");
-						if ($DBConnect === FALSE){
-							echo "<p>Unable to connect to the database server.</p>" . "<p>Error code " . mysqli_error() . ": " . mysqli_error() . "</p>";
-						} else{
-							$DBName = "project_portfolio";
-							if (!mysqli_select_db($DBConnect, $DBName)){
-								echo "<p>Druk op edit om een beschrijving van het project te geven.</p>";
-							}else{
-								$TableName = "projects";
-								$SQLstring = "INSERT INTO project (User_ID, Project_Name) VALUES('".$_SESSION['login_user']."', '".$projectName."')";
-								mysqli_query($DBConnect, $SQLstring);
-								
-								
-							}
-							mysqli_close($DBConnect);
-						}
+
 					
 						}
 						
@@ -110,6 +118,9 @@
 			<p><input type="file" name="file"></p>
 			<p>Project files :</p>
 			<p><input type="file" multiple="multiple" name="upload[]"></p>
+            <p>Is het project een SLB opdracht?</p>
+            <p><input type="radio" name="SLB" value="1"> Ja</p>
+			<p><input type="radio" name="SLB" value="0" checked=checked> Nee</p>
 			<p><input type="submit" name="submit1" value="upload project"></p>
 			
 		</form>

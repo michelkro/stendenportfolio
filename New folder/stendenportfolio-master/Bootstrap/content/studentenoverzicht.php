@@ -32,10 +32,12 @@
                         "</td><td>" . $item['User_Education'] .
                         "</td><td>" . $item['User_Email'] .
                         "</td>";
-                        echo '<td><a href="?page=home2&id=' . $item['User_ID'] . '"><input type = "submit" value = " Portfolio bekijken "/></a></tr>/td>';
+                        echo '<td><a href="?page=portfolio&id=' . $item['User_ID'] . '"><input type = "submit" value = " Portfolio bekijken "/></a></tr>/td>';
                         $_SESSION['portfolio'] = $item['User_ID'];
                         echo "</tbody>";
+                        
                     }
+                    mysqli_free_result($result);
                     echo "</table>";
 
                 } else {
