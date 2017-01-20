@@ -2,26 +2,34 @@
 <html lang="en">
   <head>
     <?php
-        if (empty($_GET['page'])) {
-            $_GET['page'] = "home";
-        }
         include ('content/session.php');
         if(isset($_GET['id'])){
             $_SESSION['portfolio'] = $_GET['id'];
+        }
+        if (!isset($_SESSION['login_user'])){
+            if (empty($_GET['page'])) {
+                $_GET['page'] = "Guest";
+            }
+        }else{
+            if (empty($_GET['page'])) {
+                $_GET['page'] = "home";
+            }
+        }
+        if(isset($_GET['id'])){
+            echo '<link href="css/css2.1.php" rel="stylesheet">'
+            . '<link href="css/css2.2.php" rel="stylesheet">';
+        }else{
+            echo '<link href="css/css1.php" rel="stylesheet">'
+            . '<link href="css/css2.php" rel="stylesheet">';
         }
     ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <title>Stenden Portfolio</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/css.php" rel="stylesheet">
-
-    <!-- Add custom CSS here -->
-    <link href="css/css2.php" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
   </head>
   <body>
@@ -55,7 +63,7 @@
                                 <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
                                 <li><a href="?page=registration"><i class="fa fa-list-alt"></i> Registratie </a></li>';
                             if(isset($_SESSION['portfolio'])){
-                                echo '<li> <a href="?page=home2"><i class="fa fa-home"></i> ' . $row2['User_Name'] . '</a></li>';
+                                echo '<li> <a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . '</a></li>';
                                 echo '<li><a href="?page=cv"><i class="fa fa-table"></i> CV en Werkervaring</a></li>';
                                 echo '<li><a href="?page=contact"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>'
                                 . '<li><a href="?page=beoordeling"><i class="fa fa-trophy"></i> Beoordeling</a></li>';
@@ -68,7 +76,7 @@
                                 <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
                                 <li><a href="?page=registration"><i class="fa fa-list-alt"></i> Registratie </a></li>';
                             if(isset($_SESSION['portfolio'])){
-                                echo '<li> <a href="?page=home2"><i class="fa fa-home"></i> ' . $row2['User_Name'] . '</a></li>';
+                                echo '<li> <a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . '</a></li>';
                                 echo '<li><a href="?page=cv"><i class="fa fa-table"></i> CV en Werkervaring</a></li>';
                                 echo '<li><a href="?page=contact"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>'
                                 . '<li><a href="?page=beoordeling"><i class="fa fa-trophy"></i> Beoordeling</a></li>';
@@ -80,7 +88,7 @@
                                 <li><a href="?page=Gastenboek"><i class="fa fa-edit"></i> Gastenboek</a></li>
                                 <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
                             if(isset($_SESSION['portfolio'])){
-                                echo '<li> <a href="?page=home2"><i class="fa fa-home"></i> ' . $row2['User_Name'] . '</a></li>';
+                                echo '<li> <a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . '</a></li>';
                                 echo '<li><a href="?page=cv"><i class="fa fa-table"></i> CV en Werkervaring</a></li>';
                                 echo '<li><a href="?page=contact"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>'
                                 . '<li><a href="?page=beoordeling"><i class="fa fa-trophy"></i> Beoordeling</a></li>';
@@ -94,7 +102,7 @@
                                 <li><a href="?page=cv"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
                                 <li><a href="?page=beoordeling"><i class="fa fa-trophy"></i> Beoordeling</a></li>';
                             if(isset($_SESSION['portfolio'])){
-                                echo '<li> <a href="?page=home2"><i class="fa fa-home"></i> ' . $row2['User_Name'] . '</a></li>';
+                                echo '<li> <a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . '</a></li>';
                                 echo '<li><a href="?page=cv"><i class="fa fa-table"></i> CV en Werkervaring</a></li>';
                                 echo '<li><a href="?page=contact"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
                             }
@@ -105,7 +113,7 @@
                                 <li><a href="?page=Gastenboek"><i class="fa fa-edit"></i> Gastenboek</a></li>
                                 <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
                             if(isset($_SESSION['portfolio'])){
-                                echo '<li> <a href="?page=home2"><i class="fa fa-home"></i> ' . $row2['User_Name'] . '</a></li>';
+                                echo '<li> <a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . '</a></li>';
                                 echo '<li><a href="?page=cv"><i class="fa fa-table"></i> CV en Werkervaring</a></li>';
                                 echo '<li><a href="?page=contact"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
                             }
@@ -116,7 +124,7 @@
                                 <li><a href="?page=Gastenboek"><i class="fa fa-edit"></i> Gastenboek</a></li>
                                 <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
                             if(isset($_SESSION['portfolio'])){
-                                echo '<li> <a href="?page=home2"><i class="fa fa-home"></i> ' . $row2['User_Name'] . '</a></li>';
+                                echo '<li> <a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . '</a></li>';
                                 echo '<li><a href="?page=cv"><i class="fa fa-table"></i> CV en Werkervaring</a></li>';
                                 echo '<li><a href="?page=contact"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
                             }
@@ -131,10 +139,15 @@
 
           <ul class="nav navbar-nav navbar-right navbar-user">
               <li class ='dropdown-header'>
-                    <form  method="post" action="search_submit.php?go"  id="searchform"> 
-                    <input  type="text" name="name"> 
-                    <input  type="submit" name="submit" value="Search"> 
-                    </form> 
+                    <form action="content/search_submit.php" method="GET"> 
+                    <input class="term" type="text" id="term" name="name" required />  
+                    <input type="submit" class='submit'  id="submit" value="search" disabled />
+                    </form>
+                    <script type="text/javascript"> 
+                    document.getElementById('term').oninput = function() {
+                        document.getElementById('submit').disabled = !this.value.trim();
+                    }
+                    </script>
               </li>
             <li class="dropdown user-dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 

@@ -2,10 +2,8 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Blank Page <small>A Blank Slate</small></h1>
+                        <h1>CV, Werkervaring en Studie </h1>
                         <ol class="breadcrumb">
-                            <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
-                            <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
                         </ol>
                     </div>
                     <div class="frontendcv">
@@ -14,6 +12,7 @@
                                 <img src="img/Pasfoto.jpg" alt="pasfoto">
                             </div>
                         </div>
+						<div id="info">
                         <div class="cv">
                             <h2>CV</h2>
                             <?php
@@ -88,7 +87,9 @@
                             }
 
                            
-                            ?> 
+                            ?>
+							</div>
+							<div class="we">
                             <h2>Studie</h2>
                             <?php
                             $DBConnect = mysqli_connect("localhost", "root", "");
@@ -124,8 +125,10 @@
                             }
 
                            
-                            ?> 
+                            ?>
+						</div>
                         </div>
+						</div>
                     </div>
                 </div><!-- /.row -->
 

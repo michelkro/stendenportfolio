@@ -1,29 +1,34 @@
- <?php 
-    if(isset($_POST['submit']) && $_POST['name'] != 'Guest'){ 
-        if(isset($_GET['go'])){ 
-            if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){ 
-                $name=$_POST['name']; 
-                //connect  to the database 
-                $db=mysql_connect  ("localhost", "root",  "") or die ('I cannot connect to the database  because: ' . mysql_error()); 
-                //-select  the database to use 
-                $mydb=mysql_select_db("project_portfolio"); 
-                //-query  the database table 
-                $sql="SELECT  User_ID, User_Name FROM User WHERE User_Name LIKE '%" . $name .  "%'"; 
-                //-run  the query against the mysql query function 
-                $result=mysql_query($sql); 
-                //-create  while loop and loop through result set 
-                while($row=mysql_fetch_array($result)){ 
-                    $UserName  =$row['User_Name']; 
-                    $ID=$row['User_ID']; 
-                    //-display the result of the array 
-                    echo "<ul>\n"; 
-                    echo "<li>" . "<a  href=\"home.php?id=$ID\">"   .$UserName .  "</a></li>\n"; 
-                    echo "</ul>"; 
-                } 
-            } 
-            else{ 
-                echo  "<p>Please enter a search query</p>"; 
-            } 
-        } 
-    } 
-?> 
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12"> 
+<?php    
+    include('session.php');
+    if(!$db) {
+        die('sorry we are having some problbems');
+    }
+    // SET GETTER AS A VARIABLE
+    $searchTerm = mysqli_real_escape_string($db,$_GET['name']);
+
+    if ( empty($searchTerm)){
+        echo("no key words searched please try again");
+    }
+    else{
+        $sql = mysqli_query(
+            $db,
+            sprintf(
+                "SELECT * FROM User WHERE User_Name LIKE '%s' LIMIT 0,20",
+                '%'. $searchTerm .'%'
+            )
+        );
+
+        while($ser = mysqli_fetch_array($sql)) {
+            echo $ser['User_Name'];
+            echo '<a href="../index.php?page=portfolio&id=' . $ser['User_ID'] . '"><input type = "submit" value = " Portfolio bekijken "/></a>';
+            $_SESSION['portfolio'] = $ser['User_ID'];
+        }
+    }
+    mysqli_close($db);
+?>
+        </div>
+    </div><!-- /.row -->
+</div><!-- /#page-wrapper -->

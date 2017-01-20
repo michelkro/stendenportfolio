@@ -2,7 +2,9 @@
 
         <div class="row">
           <div class="col-lg-12">
-            <h1>Frits Huig <small>Portfolio</small></h1>
+              <?php
+                echo "<h1>" . $row['User_Name'] . "'s<small> Portfolio</small></h1>"
+              ?>
             <ol class="breadcrumb">
               <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
               <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
