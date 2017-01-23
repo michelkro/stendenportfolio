@@ -2,11 +2,11 @@
 		<?php
 			if(isset($_SESSION['portfolio'])){
 				$array = explode("/", $_GET['Project']);
-				$array2 = explode(".", $array['3']);
+				$array2 = explode(".", $array['4']);
 				echo  '<p><a href="index.php?page=fotogalerij"><input type="submit" value="terug naar projecten"></a>';
-				echo  '<a href="index.php?page=projectbeschrijvingedit&Project='.$_GET['Project'].'"> <input type="submit" value="edit"></a></p>';
+				echo  '<a href="index.php?page=projectbeschrijvingedit2&Project='.$_GET['Project'].'"> <input type="submit" value="edit"></a></p>';
 				echo '<h1>'.$array2[0].'</h1>';
-				echo "<p><img src='content/projects/".$array[2]."/projectpicture/".$array[3]."'></p>";
+				echo "<p><img src='content/projects/".$array[2]."/SLB/projectpicture/".$array[4]."'></p>";
 				
 				$DBConnect = mysqli_connect("localhost", "root", "");
 				if ($DBConnect === FALSE){

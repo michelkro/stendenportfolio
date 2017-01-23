@@ -2,12 +2,12 @@
 		<?php
 			echo $_GET['Project'];
 			$array = explode("/", $_GET['Project']);
-			$array2 = explode(".", $array['3']);
+			$array2 = explode(".", $array['4']);
 			print_r($array);
-			echo  '<p><a href="index.php?page=fotogalerij"><input type="submit" value="terug naar projecten"></a>';
+			echo  '<p><a href="fotogalerij.php"><input type="submit" value="terug naar projecten"></a>';
 			echo  '<a href="index.php?page=projectbescrijving&Project='.$_GET['Project'].'"><input type="submit" value="terug naar project '.$array2[0].'"></a></p>';
 			echo '<h1>'.$array2[0].'</h1>';
-			echo "<p><img src='content/projects/".$array[2]."/projectpicture/".$array[3]."'></p>";
+			echo "<p><img src='content/projects/".$array[2]."/SLB/projectpicture/".$array[4]."'></p>";
 			
 			$DBConnect = mysqli_connect("localhost", "root", "");
             if ($DBConnect === FALSE){

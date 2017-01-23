@@ -1,24 +1,20 @@
-<?php
-session_start();
-?>
-
 
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
         <?php
-		
-			if(!file_exists("projects/".$_SESSION['login_user'])){
-				mkdir("projects/".$_SESSION['login_user']);
+			
+			if(!file_exists("content/projects/".$_SESSION['login_user'])){
+				mkdir("content/projects/".$_SESSION['login_user']);
 			}
-			if(!file_exists("projects/".$_SESSION['login_user']."/projectpicture")){
-				mkdir("projects/".$_SESSION['login_user']."/projectpicture");
+			if(!file_exists("content/projects/".$_SESSION['login_user']."/projectpicture")){
+				mkdir("content/projects/".$_SESSION['login_user']."/projectpicture");
 			}
-			if(!file_exists("projects/".$_SESSION['login_user']."/SLB")){
-				mkdir("projects/".$_SESSION['login_user']."/SLB");
+			if(!file_exists("content/projects/".$_SESSION['login_user']."/SLB")){
+				mkdir("content/projects/".$_SESSION['login_user']."/SLB");
 			}
-			if(!file_exists("projects/".$_SESSION['login_user']."/SLB/projectpicture")){
-				mkdir("projects/".$_SESSION['login_user']."/SLB/projectpicture");
+			if(!file_exists("content/projects/".$_SESSION['login_user']."/SLB/projectpicture")){
+				mkdir("content/projects/".$_SESSION['login_user']."/SLB/projectpicture");
 			}
 			
 			
@@ -30,6 +26,9 @@ session_start();
 				else{
 					if(empty($_POST['projectName'])){
 						echo "vul alles in";
+					}
+					if(file_exists("content/projects/".$_SESSION['login_user']."/".$_POST['projectName']) OR file_exists("content/projects/".$_SESSION['login_user']."/SLB/".$_POST['projectName'])){
+						echo "error deze naam is al in gebruik";
 					}
 					else{
 						$projectName = $_POST['projectName'];
@@ -52,10 +51,10 @@ session_start();
 										//echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
 										
 										
-										move_uploaded_file($_FILES["file"]["tmp_name"], "projects/".$_SESSION['login_user']."/SLB/projectpicture/".$projectName.".".$extension);
+										move_uploaded_file($_FILES["file"]["tmp_name"], "content/projects/".$_SESSION['login_user']."/SLB/projectpicture/".$projectName.".".$extension);
 										//echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
-										if(!file_exists("projects/".$_SESSION['login_user']."/SLB/".$projectName)){
-										mkdir("projects/".$_SESSION['login_user']."/SLB/".$projectName);
+										if(!file_exists("content/projects/".$_SESSION['login_user']."/SLB/".$projectName)){
+										mkdir("content/projects/".$_SESSION['login_user']."/SLB/".$projectName);
 									
 
 								
@@ -69,7 +68,7 @@ session_start();
 										  //Make sure we have a filepath
 											if ($tmpFilePath != ""){
 												//Setup our new file path
-												$newFilePath = "projects/".$_SESSION['login_user']."/SLB/".$projectName."/". $_FILES['upload']['name'][$i];
+												$newFilePath = "content/projects/".$_SESSION['login_user']."/SLB/".$projectName."/". $_FILES['upload']['name'][$i];
 
 												//Upload the file into the temp dir
 												if(move_uploaded_file($tmpFilePath, $newFilePath)) {
@@ -111,10 +110,10 @@ session_start();
 										//echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
 										
 										
-										move_uploaded_file($_FILES["file"]["tmp_name"], "projects/".$_SESSION['login_user']."/projectpicture/".$projectName.".".$extension);
+										move_uploaded_file($_FILES["file"]["tmp_name"], "content/projects/".$_SESSION['login_user']."/projectpicture/".$projectName.".".$extension);
 										//echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
-										if(!file_exists("projects/".$_SESSION['login_user']."/".$projectName)){
-										mkdir("projects/".$_SESSION['login_user']."/".$projectName);
+										if(!file_exists("content/projects/".$_SESSION['login_user']."/".$projectName)){
+										mkdir("content/projects/".$_SESSION['login_user']."/".$projectName);
 									
 
 								
@@ -128,7 +127,7 @@ session_start();
 								  //Make sure we have a filepath
 								  if ($tmpFilePath != ""){
 									//Setup our new file path
-									$newFilePath = "projects/".$_SESSION['login_user']."/".$projectName."/". $_FILES['upload']['name'][$i];
+									$newFilePath = "content/projects/".$_SESSION['login_user']."/".$projectName."/". $_FILES['upload']['name'][$i];
 
 									//Upload the file into the temp dir
 									if(move_uploaded_file($tmpFilePath, $newFilePath)) {
@@ -198,7 +197,7 @@ session_start();
 			<p><input type="submit" name="submit1" value="upload project"></p>
 			
 		</form>
-		<p><a href="fotogalerij.php"><input type="submit" value="back"></a></p>
+		<p><a href="index.php?page=fotogalerij"><input type="submit" value="back"></a></p>
         </div>
     </div>
 </div>
