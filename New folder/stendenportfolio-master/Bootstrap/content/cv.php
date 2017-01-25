@@ -40,7 +40,7 @@
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
                                             echo "<p>{$Row['Textarea']}</p>";
-                                            echo "<p><a href ='cvtext_edit.php?cvID=" . $Row['cvID'] . "'>Edit</a><p>";
+                                            echo "<p><a href ='index.php?page=cvtext_edit&cvID=" . $Row['cvID'] . "'>Edit</a><p>";
                                         }
                                     }
                                     mysqli_free_result($QueryResult);
@@ -78,7 +78,7 @@
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
                                             echo "<p>{$Row['Werkervaring']}</p>";
-                                            echo "<p><a href ='cvwerkervaring_edit.php?cvID=" . $Row['cvID'] . "'>Edit</a><p>";
+                                            echo "<p><a href ='index.php?page=cvwerkervaring_edit&cvID=" . $Row['cvID'] . "'>Edit</a><p>";
                                         }
                                     }
                                     mysqli_free_result($QueryResult);
@@ -116,7 +116,7 @@
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
                                             echo "<p>{$Row['Opleidingen']}</p>";
-                                            echo "<p><a href ='cvopleidingen_edit.php?cvID=" . $Row['cvID'] . "'>Edit</a><p>";
+                                            echo "<p><a href ='index.php?page=cvopleidingen_edit&cvID=" . $Row['cvID'] . "'>Edit</a><p>";
                                         }
                                     }
                                     mysqli_free_result($QueryResult);

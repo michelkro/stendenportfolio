@@ -41,7 +41,7 @@
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
                                             echo "<p>{$Row['Textarea']}</p>";
-                                            echo "<p><a href ='cvtext_edit.php?cvID=" . $Row['cvID'] . "'>Edit</a><p>";
+                                            echo "<p><a href ='?page=cvtext_edit&cvID=" . $Row['cvID'] . "'>Edit</a><p>";
                                         }
                                     }
                                     mysqli_free_result($QueryResult);
@@ -77,7 +77,7 @@
                                     {
                                         echo"<h2>Vul in om je cv te bewerken.</h2>";
                                         echo"<div id='form'>";
-                                        echo "<form method='POST' action='cvwerkervaring_done.php?cvID=" . $cvID . "'>";
+                                        echo "<form method='POST' action='index.php?page=cvwerkervaring_done&cvID=" . $cvID . "'>";
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
 
@@ -95,7 +95,7 @@
 
                             <h2>Studie</h2>
                             <?php
-                            $DBConnect = mysqli_connect("localhost", "root", "");
+							$DBConnect = mysqli_connect("localhost", "root", "");
                             if ($DBConnect === FALSE)
                             {
                                 echo "<p>Unable to connect to the database server.</p>" . "<p>Error code " . mysqli_error() . ": " . mysqli_error() . "</p>";
@@ -119,7 +119,7 @@
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
                                             echo "<p>{$Row['Opleidingen']}</p>";
-                                            echo "<p><a href ='cvopleidingen_edit.php?cvID=" . $Row['cvID'] . "'>Edit</a><p>";
+                                            echo "<p><a href ='?page=cvopleidingen_edit&cvID=" . $Row['cvID'] . "'>Edit</a><p>";
                                         }
                                     }
                                     mysqli_free_result($QueryResult);

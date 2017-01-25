@@ -41,7 +41,7 @@
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
                                             echo "<p>{$Row['Textarea']}</p>";
-                                            echo "<p><a href ='cvtext_edit.php?cvID=" . $Row['cvID'] . "'>Edit</a><p>";
+                                            echo "<p><a href ='cvtext_edit?cvID=" . $Row['cvID'] . "'>Edit</a><p>";
                                         }
                                     }
                                     mysqli_free_result($QueryResult);
@@ -77,7 +77,7 @@
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
                                             echo "<p>{$Row['Werkervaring']}</p>";
-                                            echo "<p><a href ='cvwerkervaring_edit.php?cvID=" . $Row['cvID'] . "'>Edit</a><p>";
+                                            echo "<p><a href ='?page=cvwerkervaring_edit&cvID=" . $Row['cvID'] . "'>Edit</a><p>";
                                         }
                                     }
                                     mysqli_free_result($QueryResult);
@@ -87,8 +87,7 @@
                             ?> 
                             <h2>Studie</h2>
                             <?php
-
-                            $cvID = $_GET["cvID"];
+							$cvID = $_GET["cvID"];
                             $DBConnect = mysqli_connect("localhost", "root", "");
                             if ($DBConnect === FALSE)
                             {
@@ -111,7 +110,7 @@
                                     {
                                         echo"<h2>Vul in om je cv te bewerken.</h2>";
                                         echo"<div id='form'>";
-                                        echo "<form method='POST' action='cvopleidingen_done.php?cvID=" . $cvID . "'>";
+                                        echo "<form method='POST' action='index.php?page=cvopleidingen_done&cvID=" . $cvID . "'>";
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
 

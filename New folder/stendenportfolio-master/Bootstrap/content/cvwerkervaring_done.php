@@ -35,7 +35,7 @@ if (empty($_POST['werkervaring']))
             } else
             {
 
-                echo header("location:cv.php?cvID=" . $cvID . "");
+                echo header("location:index.php?page=cv&cvID=" . $cvID . "");
             }
         }
         mysqli_close($DBConnect);
