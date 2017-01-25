@@ -37,7 +37,7 @@
     <div id="wrapper">
 
       <!-- Sidebar -->
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
         <!-- Brand and toggle get grouped for better mobile display -->
 	      <!-- Zoekbalk voor user names -->
         <div class="navbar-header">
@@ -140,7 +140,7 @@
           <ul class="nav navbar-nav navbar-right navbar-user">
               <li class ='dropdown-header'>
                     <form action="content/search_submit.php" id="navbar" method="GET"> 
-                    <input class="term" type="text" id="term" name="name" placeholder=" Zoeken..."required />  
+                    <input class="term" type="text" id="term" name="name" placeholder=" Zoeken..." required />  
                     <input type="submit" class='submit'  id="submit" value="search" disabled />
                     </form>
                     <script type="text/javascript"> 
@@ -161,7 +161,7 @@
                         }
                     ?> 
           </ul>
-        </div><!-- /.navbar-collapse -->
+        </div>
       </nav>
       <?php
             if (empty($_GET['page'])){
@@ -181,7 +181,7 @@
             }
         ?>
 
-    </div><!-- /#wrapper -->
+    </div>
 
     <!-- JavaScript -->
     <script src="js/jquery-1.10.2.js"></script>
