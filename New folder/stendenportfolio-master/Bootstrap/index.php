@@ -58,7 +58,7 @@
                     switch ($row['User_Type_ID']){
                         case 1:
                             echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="?page=fotogalerij"><i class="fa fa-camera"></i> Fotogalerij</a></li>
+                                <li><a href="?page=fotogalerij"><i class="fa fa-camera"></i> Projecten</a></li>
                                 <li><a href="?page=Gastenboek"><i class="fa fa-edit"></i> Gastenboek</a></li>
                                 <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
                                 <li><a href="?page=registration"><i class="fa fa-list-alt"></i> Registratie </a></li>';
@@ -71,7 +71,7 @@
                             break;
                         case 2:
                             echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="?page=fotogalerij"><i class="fa fa-camera"></i> Fotogalerij</a></li>
+                                <li><a href="?page=fotogalerij"><i class="fa fa-camera"></i> Projecten</a></li>
                                 <li><a href="?page=Gastenboek"><i class="fa fa-edit"></i> Gastenboek</a></li>
                                 <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
                                 <li><a href="?page=registration"><i class="fa fa-list-alt"></i> Registratie </a></li>';
@@ -84,7 +84,7 @@
                             break;
                         case 5:
                             echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="?page=fotogalerij"><i class="fa fa-camera"></i> Fotogalerij</a></li>
+                                <li><a href="?page=fotogalerij"><i class="fa fa-camera"></i> Projecten</a></li>
                                 <li><a href="?page=Gastenboek"><i class="fa fa-edit"></i> Gastenboek</a></li>
                                 <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
                             if(isset($_SESSION['portfolio'])){
@@ -96,7 +96,7 @@
                             break;
                         case 4:
                             echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="?page=fotogalerij"><i class="fa fa-camera"></i> Fotogalerij</a></li>
+                                <li><a href="?page=fotogalerij"><i class="fa fa-camera"></i> Projecten</a></li>
                                 <li><a href="?page=Gastenboek"><i class="fa fa-edit"></i> Gastenboek</a></li>
                                 <li><a href="?page=styling"><i class="fa fa-wrench"></i> Styling</a></li>
                                 <li><a href="?page=cv"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
@@ -109,7 +109,7 @@
                             break;
                         case 6:
                             echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="?page=fotogalerij"><i class="fa fa-camera"></i> Fotogalerij</a></li>
+                                <li><a href="?page=fotogalerij"><i class="fa fa-camera"></i> Projecten</a></li>
                                 <li><a href="?page=Gastenboek"><i class="fa fa-edit"></i> Gastenboek</a></li>
                                 <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
                             if(isset($_SESSION['portfolio'])){
@@ -120,7 +120,7 @@
                             break;
                         case 7:
                             echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="?page=fotogalerij"><i class="fa fa-camera"></i> Fotogalerij</a></li>
+                                <li><a href="?page=fotogalerij"><i class="fa fa-camera"></i> Projecten</a></li>
                                 <li><a href="?page=Gastenboek"><i class="fa fa-edit"></i> Gastenboek</a></li>
                                 <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
                             if(isset($_SESSION['portfolio'])){
@@ -139,8 +139,8 @@
 
           <ul class="nav navbar-nav navbar-right navbar-user">
               <li class ='dropdown-header'>
-                    <form action="content/search_submit.php" method="GET"> 
-                    <input class="term" type="text" id="term" name="name" required />  
+                    <form action="content/search_submit.php" id="navbar" method="GET"> 
+                    <input class="term" type="text" id="term" name="name" placeholder=" Zoeken..."required />  
                     <input type="submit" class='submit'  id="submit" value="search" disabled />
                     </form>
                     <script type="text/javascript"> 
@@ -149,8 +149,6 @@
                     }
                     </script>
               </li>
-            <li class="dropdown user-dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
                     <?php
                         if($_SESSION['login_user'] != null){
                             echo $row['User_Name'];
@@ -162,8 +160,6 @@
                             echo '<li><a href="?page=login"><i class="fa fa-power-off"></i> Log In</a></li>';
                         }
                     ?> 
-                  <b class="caret"></b></a>
-            </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </nav>
