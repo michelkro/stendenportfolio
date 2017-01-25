@@ -2,12 +2,12 @@
 		<?php
 			echo $_GET['Project'];
 			$array = explode("/", $_GET['Project']);
-			$array2 = explode(".", $array['3']);
+			$array2 = explode(".", $array['2']);
 			print_r($array);
-			echo  '<p><a href="index.php?page=fotogalerij"><input type="submit" value="terug naar projecten"></a>';
-			echo  '<a href="index.php?page=projectbescrijving&Project='.$_GET['Project'].'"><input type="submit" value="terug naar project '.$array2[0].'"></a></p>';
+			echo  '<p><a href="fotogalerij.php"><input type="submit" value="terug naar projecten"></a>';
+			echo  '<a href="projectbescrijving.php?Project='.$_GET['Project'].'"><input type="submit" value="terug naar project '.$array2[0].'"></a></p>';
 			echo '<h1>'.$array2[0].'</h1>';
-			echo "<p><img src='content/projects/".$array[2]."/projectpicture/".$array[3]."'></p>";
+			echo "<p><img src='projects/".$array[1]."/projectpicture/".$array[2]."'></p>";
 			
 			$DBConnect = mysqli_connect("localhost", "root", "");
             if ($DBConnect === FALSE){
@@ -17,11 +17,11 @@
 				if (!mysqli_select_db($DBConnect, $DBName)){
 					echo "<p>Druk op edit om een beschrijving van het project te geven.</p>";
 				}else{
-
-					$SQLstring = "SELECT Project_Description FROM projects WHERE Project_Name = '".$array2['0']."' AND User_Email = '".$array['2']."'" ;
+					$TableName = "projects";
+					$SQLstring = "SELECT Project_Description FROM ".$TableName." WHERE User_ID ='".$_SESSION['login_user']."' AND Project_Name = '".$array[0];
 					$QueryResult = mysqli_query($DBConnect, $SQLstring);
 					if (mysqli_num_rows($QueryResult) == 0){
-						echo "<p>error</p>";
+						echo "<p>There are no textfields!</p>";
 					} else{
 		 
 						while ($Row = mysqli_fetch_assoc($QueryResult)){
@@ -33,8 +33,8 @@
 				mysqli_close($DBConnect);
             }
 			
-			if(isset($_POST['submit'])){
-				if (empty($_POST['projectbeschrijving']))
+			if(isset($_POST['projectbeschrijving'])){
+				if (empty($_POST['opleidingen']))
 				{
 					echo "<p>You must fill in every field!</p>";
 				} else
@@ -55,17 +55,19 @@
 							
 							$Textarea = stripslashes($_POST["projectbeschrijving"]);
 							$TableName = "projects";
-							$SQLstring = "UPDATE ".$TableName." SET Project_Description = '". $Textarea."' WHERE Project_Name = '".$array2['0']."' AND User_Email = '".$array['2']."'" ;
+							$SQLstring = "UPDATE ".$TableName." SET Project_Description = '". $Textarea."' WHERE User_ID ='".$_SESSION['login_user']."' AND Project_Name = '".$array[0];
 							$QueryResult = mysqli_query($DBConnect, $SQLstring);
 							if ($QueryResult === FALSE)
 							{
 								echo "<p>Unable to execute the query.</p>" . "<p>Error code " . mysqli_error($DBConnect) . ": " . mysqli_error($DBConnect) . "</p>";
-							} 
-
+							} else
+							{
+				 
+								echo 'De beschrijving is aangepast.';
+							}
 						}
 						mysqli_close($DBConnect);
-						header("Refresh:0");
-					}	
+					}
 				}
 			}
 		
@@ -74,7 +76,6 @@
 		?>
 			<form action="#" method="POST">
 				<textarea name="projectbeschrijving"><?php echo $projectbeschrijving; ?></textarea>
-				<input type="submit" name="submit" value="wijzigen">
 			</form>
 			
 			

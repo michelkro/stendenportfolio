@@ -20,6 +20,7 @@
         $MenuColor_Base = $row3['Menu_Colour'];
         $TextColor_Base = $row3['Text_Colour'];
         $Font_Base = $row3['Font'];
+        $TextboxColor_Base = $row3['TextBox_Colour'];
         mysqli_free_result($ses_sql3);
         if(isset($_SESSION['portfolio'])){
             $user_check2 = $_SESSION['portfolio'];
@@ -34,6 +35,7 @@
             $MenuColor_Home = $Row['Menu_Colour'];
             $TextColor_Home = $Row['Text_Colour'];
             $Font_Home = $Row['Font'];
+            $TextboxColor_Home = $Row['TextBox_Colour'];
             mysqli_free_result($SQLstring);
         }
     }

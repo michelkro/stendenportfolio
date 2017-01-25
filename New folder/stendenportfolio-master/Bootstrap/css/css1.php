@@ -277,6 +277,9 @@ table {
   .navbar {
     display: none;
   }
+  #navbar {
+    padding-top: 10px;
+  }
   .table td,
   .table th {
     background-color: #fff !important;

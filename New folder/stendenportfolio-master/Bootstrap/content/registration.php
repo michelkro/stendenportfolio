@@ -1,6 +1,7 @@
 <?php
 //set validation error flag as false
 $error2 = false;
+//include 'session.php';
 
 //check if form is submitted
 if (isset($_POST['signup'])) {
@@ -52,9 +53,9 @@ if (isset($_POST['signup'])) {
         if(mysqli_query($db, "INSERT INTO user(User_Name,User_Email,User_Password,User_Type_ID) VALUES('" . $name2 . "', '" . $email2 . "', '" . md5($password2). "', '" . $usertype . "')")) {
             $successmsg = "Successfully Registered!";
             $id = mysqli_query($db, "SELECT `User_ID` FROM USER WHERE `User_Email` = '" . $email2 . "' ");
-            $row = mysqli_fetch_array($id,MYSQLI_ASSOC);
+            $row5 = mysqli_fetch_array($id,MYSQLI_ASSOC);
             
-            $design = mysqli_query($db, "INSERT INTO design(User_ID) VALUES('" . $row['User_ID'] . "')" );
+            $design = mysqli_query($db, "INSERT INTO design(User_ID) VALUES('" . $row5['User_ID'] . "')" );
         } else {
             $errormsg = "Error in registering...Please try again later!";
         }
@@ -66,7 +67,7 @@ if (isset($_POST['signup'])) {
 
     <div class="row">
         <div class="col-lg-12">
-            <h1>Frits Huig <small>Portfolio</small></h1>
+            <h1>Account Toevoegen</h1>
             <ol class="breadcrumb">
                 <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
                 <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
@@ -75,7 +76,7 @@ if (isset($_POST['signup'])) {
         <div class="frontendhome">
         <form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="signupform">
             <fieldset>
-                <legend>Account aanmaken</legend>
+                <legend></legend>
                     <label for="name">Name :</label>
                     <input type="text" name="name" placeholder="Enter Full Name" required value="<?php if($error2) echo $name2; ?>" class="form-control" />
                     <span class="text-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
