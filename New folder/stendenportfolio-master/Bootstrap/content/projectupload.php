@@ -128,10 +128,18 @@
 								  if ($tmpFilePath != ""){
 									//Setup our new file path
 									$newFilePath = "content/projects/".$_SESSION['login_user']."/".$projectName."/". $_FILES['upload']['name'][$i];
-
+                          
 									//Upload the file into the temp dir
 									if(move_uploaded_file($tmpFilePath, $newFilePath)) {
-
+										
+										                                
+									}															
+								}
+							 }	
+						  
+							}
+								}
+				
 										$DBConnect = mysqli_connect("localhost", "root", "");
 										if ($DBConnect === FALSE){
 											echo "<p>Unable to connect to the database server.</p>" . "<p>Error code " . mysqli_error() . ": " . mysqli_error() . "</p>";
@@ -140,29 +148,14 @@
 											if (!mysqli_select_db($DBConnect, $DBName)){
 												echo "<p>error</p>";
 											}else{
-												$TableName = "projects";
-												$SQLstring = "INSERT INTO project (User_ID, Project_Name, SLB_Opdracht) VALUES('".$_SESSION['login_user']."', '".$projectName."', '0')";
+												$SQLstring = "INSERT INTO projects (User_Email, Project_Name, SLB_Opdracht) VALUES('".$_SESSION['login_user']."', '".$projectName."', '0')";
 												mysqli_query($DBConnect, $SQLstring);
 
 
 											}
 											mysqli_close($DBConnect);
-										}                                                            
-									}									
-								  								
-																
-																
-																
-																
-																
-								}
-								
-							 }
+										} 	 
 						  
-							}
-								}
-				
-							
 
 						
 							}
@@ -184,6 +177,7 @@
 			}
 		
         ?>
+		<br>
 		<form action="#" method="POST" enctype="multipart/form-data">
 			<p>Project name :</p>
 			<p><input type="text" name="projectName"></p>
