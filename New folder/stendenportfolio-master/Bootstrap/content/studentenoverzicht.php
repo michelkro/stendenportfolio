@@ -8,10 +8,6 @@
                 <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
             </ol>
             <?php
-                if($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $query = 'select User_ID from User where User_ID = ' . $item['User_ID'];
-                    $_SESSION['portfolio'] = mysqli_query($db, $query);
-                }
                 $query = "SELECT User_Name, User_Education, User_Email, User_ID FROM user WHERE User_Type_ID = 4";                   
                 $result = mysqli_query($db, $query);
 
@@ -24,7 +20,7 @@
                             <th><h3>Opleiding</h3></th>
                             <th><h3>Email</h3></th>
                           </tr>";
-                     echo "</thead>";
+                    echo "</thead>";
 
                     while($item = mysqli_fetch_assoc($result)){ 
                         echo "<tbody>";

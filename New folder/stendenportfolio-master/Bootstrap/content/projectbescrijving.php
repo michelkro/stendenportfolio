@@ -1,40 +1,40 @@
 <div id="page-wrapper">
 		<?php
-			if(isset($_SESSION['portfolio'])){
-				$array = explode("/", $_GET['Project']);
-				$array2 = explode(".", $array['3']);
-				echo  '<p><a href="index.php?page=fotogalerij"><input type="submit" value="terug naar projecten"></a>';
-				echo  '<a href="index.php?page=projectbeschrijvingedit&Project='.$_GET['Project'].'"> <input type="submit" value="edit"></a></p>';
-				echo '<h1>'.$array2[0].'</h1>';
-				echo "<p><img src='content/projects/".$array[2]."/projectpicture/".$array[3]."'></p>";
-				
-				$DBConnect = mysqli_connect("localhost", "root", "");
-				if ($DBConnect === FALSE){
-					echo "<p>Unable to connect to the database server.</p>" . "<p>Error code " . mysqli_error() . ": " . mysqli_error() . "</p>";
-				} else{
-					$DBName = "project_portfolio";
-					if (!mysqli_select_db($DBConnect, $DBName)){
-						echo "<p>Druk op edit om een beschrijving van het project te geven.</p>";
-					}else{
-						
-						
-						$SQLstring = "SELECT Project_Description FROM projects WHERE Project_Name = '".$array2['0']."' AND User_Email = '".$array['2']."'" ;
-						$QueryResult = mysqli_query($DBConnect, $SQLstring);
-						if (mysqli_num_rows($QueryResult) == 0){
-							echo "<p>There are no textfields!</p>";
-						} else{
-			 
-							while ($Row = mysqli_fetch_assoc($QueryResult)){
-								echo $Row['Project_Description'];
+			
+			$array = explode("/", $_GET['Project']);
+			$array2 = explode(".", $array['2']);
+			echo  '<p><a href="fotogalerij.php"><input type="submit" value="terug naar projecten"></a>';
+			echo  '<a href="projectbeschrijvingedit.php?Project='.$_GET['Project'].'"> <input type="submit" value="edit"></a></p>';
+			echo '<h1>'.$array2[0].'</h1>';
+			echo "<p><img src='projects/".$array[1]."/projectpicture/".$array[2]."'></p>";
+			
+			$DBConnect = mysqli_connect("localhost", "root", "");
+            if ($DBConnect === FALSE){
+                echo "<p>Unable to connect to the database server.</p>" . "<p>Error code " . mysqli_error() . ": " . mysqli_error() . "</p>";
+            } else{
+				$DBName = "project_portfolio";
+				if (!mysqli_select_db($DBConnect, $DBName)){
+					echo "<p>Druk op edit om een beschrijving van het project te geven.</p>";
+				}else{
+					
+					$TableName = "projects";
+					$SQLstring = "SELECT Project_Description FROM $TableName WHERE Project_Name = '".$array[0];
+					$QueryResult = mysqli_query($DBConnect, $SQLstring);
+					if (mysqli_num_rows($QueryResult) == 0){
+						echo "<p>There are no textfields!</p>";
+					} else{
+		 
+						while ($Row = mysqli_fetch_assoc($QueryResult)){
+							echo $Row['Project_Description'];
 
-							}
-							mysqli_free_result($QueryResult);
 						}
-						
+						mysqli_free_result($QueryResult);
 					}
-					mysqli_close($DBConnect);
+					
 				}
-            }               
+				mysqli_close($DBConnect);
+            }
+                           
 			
 			
 			
@@ -46,7 +46,7 @@
 			//lijst met bestanden in een folder
 			// van vele bestanden een zip maken
 			
-			$dir = "content/projects/".$array[2]."/".$array2[0]."/";
+			$dir = "projects/".$array[1]."/".$array2[0]."/";
 			$files = scandir($dir);rsort($files);
 			$zipname = $array2[0].'.zip';
 			$zip = new ZipArchive;

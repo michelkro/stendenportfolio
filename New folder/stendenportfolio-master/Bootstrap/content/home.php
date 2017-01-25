@@ -2,7 +2,7 @@
 
         <div class="row">
           <div class="col-lg-12">
-              <?php
+              <?php 
                 echo "<h1>" . $row['User_Name'] . "'s<small> Portfolio</small></h1>"
               ?>
             <ol class="breadcrumb">
