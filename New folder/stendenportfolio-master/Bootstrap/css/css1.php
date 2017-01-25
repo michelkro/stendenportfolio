@@ -9,7 +9,7 @@
     }else{
         $Header = 'blue';
         $Hoveractivemenu = 'black';
-        $Textcolor = 'white';
+        $Textcolor = 'grey';
         $Font = 'arial';
     }
 ?>
@@ -356,6 +356,10 @@ img {
  
 .img-rounded {
   border-radius: 6px;
+}
+
+#navbar{
+	padding-top: 4%;
 }
  
 .img-thumbnail {
@@ -888,6 +892,7 @@ pre code {
 .col-lg-12 {
   position: relative;
   min-height: 1px;
+  padding-bottom: 15px;
   padding-right: 15px;
   padding-left: 15px;
 }
