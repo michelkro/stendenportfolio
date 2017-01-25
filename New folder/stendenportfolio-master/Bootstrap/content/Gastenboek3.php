@@ -24,7 +24,7 @@
             <ol class="breadcrumb">
               <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
               <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
-              <li><a href="Gastenboek.php"><i class="icon-dashboard"></i> Terug naar het gastenboek</a></li>
+              <li><a href="index.php?page=Gastenboek2"><i class="icon-dashboard"></i> Terug naar het gastenboek</a></li>
             </ol>
           </div>
             <div id="body">
@@ -59,7 +59,7 @@
                                             . '<input type="submit" name="verberg" value="verbergen">'
                                             . '<input type="submit" name="verwijder" value="verwijderen"></p>'
                                             . '</form>';
-                                    echo '<a href="Gastenboek2.php"><input type="submit" value="terug"></a>';
+                                    echo '<a href="index.php?page=Gastenboek2"><input type="submit" value="terug"></a>';
                                     echo  "<hr>";
                                     
                                 if(isset($_POST["zichtbaar"])){
