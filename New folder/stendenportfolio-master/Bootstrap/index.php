@@ -94,7 +94,7 @@
                             break;
                         case 4:
                             echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="?page=fotogalerij"><i class="fa fa-camera"></i> Fotogalerij</a></li>
+                                <li><a href="?page=fotogalerij"><i class="fa fa-camera"></i> Projecten</a></li>
                                 <li><a href="?page=Gastenboek"><i class="fa fa-edit"></i> Gastenboek</a></li>
                                 <li><a href="?page=styling"><i class="fa fa-wrench"></i> Styling</a></li>
                                 <li><a href="?page=cv"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
@@ -139,7 +139,7 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">
-              <li class ='dropdown-header' style="padding-top:4%">
+              <li class ='dropdown-header'>
                     <form action="?page=search_submit.php" id="navbar" method="GET"> 
                     <input class="term" type="text" id="term" name="name" placeholder=" Zoeken..." required />  
                     <input type="submit" class='submit'  id="submit" value="search" disabled />
@@ -156,7 +156,6 @@
                         if($_SESSION['login_user'] != null){
                             echo $row['User_Name'];
                             echo '<ul class="dropdown-menu">
-                            <li><a href=""><i class="fa fa-user"></i> Profile</a></li>
                             <li><a href="?page=logout"><i class="fa fa-power-off"></i> Log Out</a></li>
                             </ul>';
                         }else {
