@@ -7,11 +7,14 @@
         $Menu = $MenuColor_Base;
     }else{
         $Background = 'lightgray';
-        $Hoveractivemenu = 'black';
-        $Menu = 'darkgray';
+        $Hoveractivemenu = '#FF9800';
+        $Menu = '#FF9800';
     }
 ?>
- 
+
+body{
+	background-color: <?php echo $Background; ?>;
+}	
 html{
     background-color: <?php echo $Background; ?>;
 }
@@ -187,7 +190,9 @@ table.tablesorter thead tr th:hover {
     background-color: <?php echo $Menu; ?>;
     overflow-y: auto;
   }
- 
+  .dropdown-menu{
+	background-color: <?php echo $Menu; ?>;
+  }
   /* Bootstrap Default Overrides - Customized Dropdowns for the Side Nav */
  
   .side-nav>li.dropdown>ul.dropdown-menu {
