@@ -7,7 +7,7 @@
               ?>
             <ol class="breadcrumb">
               <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
-              <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
+              <li class="active"><i class="icon-file-alt"></i> Voorpagina</li>
             </ol>
           </div>
             <div id="content">

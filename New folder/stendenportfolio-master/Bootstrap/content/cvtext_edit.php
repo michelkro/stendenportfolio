@@ -46,7 +46,7 @@
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
 
-                                            echo "<p>CV tekst:<textarea rows='25' cols='100' name='textarea'>" . $Row['Textarea'] . "</textarea></p>";
+                                            echo "<p>CV tekst:<textarea rows='25' cols='100' name='textarea' class='letterkleur'>" . $Row['Textarea'] . "</textarea></p>";
                                             echo "<p><input type='submit' value='Enter'> <input type='reset' value='Reset'></p>";
                                         }
                                         echo "</form>";
@@ -92,7 +92,7 @@
                                 }
                                 mysqli_close($DBConnect);
                             }
-                            ?> 
+                            ?>							
                             <h2>Studie</h2>
                             <?php
                             $DBConnect = mysqli_connect("localhost", "root", "");

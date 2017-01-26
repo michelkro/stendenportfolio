@@ -2,11 +2,11 @@
 
         <div class="row">
           <div class="col-lg-12">
-            <h1>Gastenboek <small>Frits Huig</small></h1>
+            <h1>Gastenboek</h1>
             <ol class="breadcrumb">
               <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
-              <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
-              <li><a href="index.php?page=Gastenboek2"><i class="icon-dashboard"></i> Admin Gastenboek</a></li>
+              <li class="active"><i class="icon-file-alt"></i> Gastenboek</li>
+              <li><a href="content/Gastenboek2.php"><i class="icon-dashboard"></i> Alle berichten</a></li>
             </ol>
           </div>
             <div id="body">
@@ -47,11 +47,11 @@
 //---------------------------------------------------------------INPUT-----------------------------------------------
 
                         if(isset($_POST["submit"])){
-							if(empty($_POST["name"]) || empty($_POST["mail"]) || empty($_POST["text"])){
+							if(empty($_POST['userName']) || empty($_POST['userPass'])){
 								echo "vul alles in";
 							}
 							else{
-								if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
+								if (!filter_var($_POST['userEmail'], FILTER_VALIDATE_EMAIL)) {
 									echo 'vul een geldig Emailadres in';
 								}
                                 else{   
@@ -77,10 +77,10 @@
                     ?>
 
                     <form action="#" method="POST">
-                        <p><input class="form-control" style="width: 250px" name="name" placeholder="Uw naam"></p>
-                        <p><input class="form-control" style="width: 250px" name="mail" placeholder="Uw Emailadres"></p>
+                        <p><input class="form-control" style="width: 250px; color: #212121 !important" name="name" placeholder="Uw naam"></p>
+                        <p><input class="form-control" style="width: 250px; color: #212121 !important" name="mail" placeholder="Uw Emailadres" class="letterkleur"></p>
 
-                        <p><textarea class="form-control" style="height: 150px" name="text" placeholder="Plaats hier uw bericht, gebruik maximaal 1000 tekens"></textarea></p>
+                        <p><textarea class="form-control" style="height: 150px; color: #212121 !important" name="text" placeholder="Plaats hier uw bericht, gebruik maximaal 1000 tekens" class="letterkleur"></textarea></p>
                         <p><button type="submit" class="btn btn-primary" value="Verzenden" name="submit">Verzenden</button></p>
                     </form>
             </div><!-- /.row -->

@@ -114,7 +114,7 @@
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
 
-                                            echo "<p>Opleidingen:<textarea rows='10' cols='100' name='opleidingen'>" . $Row['Opleidingen'] . "</textarea></p>";
+                                            echo "<p>Opleidingen:<textarea rows='10' cols='100' name='opleidingen' class='letterkleur'>" . $Row['Opleidingen'] . "</textarea></p>";
                                             echo "<p><input type='submit' value='Enter'> <input type='reset' value='Reset'></p>";
                                         }
                                         echo "</form>";

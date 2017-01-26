@@ -4,6 +4,8 @@
                     <div class="col-lg-12">
                         <h1>CV, Werkervaring en Studie </h1>
                         <ol class="breadcrumb">
+							<li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
+							<li class="active"><i class="icon-file-alt"></i> CV & Werkervaring</li>
                         </ol>
                     </div>
                     <div class="frontendcv">
