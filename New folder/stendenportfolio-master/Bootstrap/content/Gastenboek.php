@@ -6,7 +6,7 @@
             <ol class="breadcrumb">
               <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
               <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
-              <li><a href="Gastenboek2.php"><i class="icon-dashboard"></i> Admin Gastenboek</a></li>
+              <li><a href="index.php?page=Gastenboek2"><i class="icon-dashboard"></i> Admin Gastenboek</a></li>
             </ol>
           </div>
             <div id="body">
@@ -47,11 +47,11 @@
 //---------------------------------------------------------------INPUT-----------------------------------------------
 
                         if(isset($_POST["submit"])){
-							if(empty($_POST['userName']) || empty($_POST['userPass'])){
+							if(empty($_POST["name"]) || empty($_POST["mail"]) || empty($_POST["text"])){
 								echo "vul alles in";
 							}
 							else{
-								if (!filter_var($_POST['userEmail'], FILTER_VALIDATE_EMAIL)) {
+								if (!filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)) {
 									echo 'vul een geldig Emailadres in';
 								}
                                 else{   

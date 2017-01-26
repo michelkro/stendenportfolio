@@ -23,7 +23,7 @@
             <ol class="breadcrumb">
               <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
               <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
-              <li><a href="Gastenboek.php"><i class="icon-dashboard"></i> Terug naar het gastenboek</a></li>
+              <li><a href="index.php?page=gastenboek"><i class="icon-dashboard"></i> Terug naar het gastenboek</a></li>
             </ol>
           </div>
             <div id="body">
@@ -51,7 +51,7 @@
                                 else{
                                     echo '<p>Dit bericht is verborgen.</p>';
                                 }
-                                echo '<a href="Gastenboek3.php?ID='.$item['MessageID'].'"><input type="submit" value="wijzigen"></a>';
+                                echo '<a href="index.php?page=Gastenboek3&ID='.$item['MessageID'].'"><input type="submit" value="wijzigen"></a>';
                                 echo  "<hr>";
                               
                         }    
