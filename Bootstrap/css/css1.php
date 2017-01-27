@@ -221,7 +221,10 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
- 
+.margin{
+	padding: 2%;
+	border: 1px solid <?php echo $Header; ?>;
+}  
 @media print {
   * {
     color: #000 !important;

@@ -15,12 +15,23 @@
                 $_GET['page'] = "home";
             }
         }
-        if(isset($_GET['id'])){
-            echo '<link href="css/css2.1.php" rel="stylesheet">'
+        if(isset($_GET['Project'])){
+            $checkstring = 'projects/'.$row['User_Email'].'/dkokas.jpeg';
+            if($checkstring != $_GET['Project']){
+                echo '<link href="css/css2.1.php" rel="stylesheet">'
             . '<link href="css/css2.2.php" rel="stylesheet">';
+            }else{
+                echo '<link href="css/css1.php" rel="stylesheet">'
+                . '<link href="css/css2.php" rel="stylesheet">';
+            }
         }else{
-            echo '<link href="css/css1.php" rel="stylesheet">'
-            . '<link href="css/css2.php" rel="stylesheet">';
+            if(isset($_GET['id'])){
+                echo '<link href="css/css2.1.php" rel="stylesheet">'
+                . '<link href="css/css2.2.php" rel="stylesheet">';
+            }else{
+                echo '<link href="css/css1.php" rel="stylesheet">'
+                . '<link href="css/css2.php" rel="stylesheet">';
+            }
         }
     ?>
     <meta charset="utf-8">
@@ -57,10 +68,9 @@
                 if(isset($_SESSION['login_user'])){
                     switch ($row['User_Type_ID']){
                         case 1:
-                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
+                            echo '<li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
                                 <li><a href="?page=registration"><i class="fa fa-list-alt"></i> Registratie </a></li>';
-                            if(isset($_SESSION['portfolio'])){
+                            if(isset($_SESSION['portfolio']) && isset($row2)){
                                 echo '<li><a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . "'s Portfolio" .'</a></li>';
                                 echo '<li><a href="?page=cv_1&id='. $row2['User_ID'] . '"><i class="fa fa-table"></i> ' . $row2['User_Name'] . "'s CV en Werkervaring" . '</a></li>';
                                 echo '<li><a href="?page=fotogalerij_1&id='. $row2['User_ID'] . '"><i class="fa fa-camera"></i> ' . $row2['User_Name'] . "'s Projecten" . '</a></li>';
@@ -69,10 +79,9 @@
                             }
                             break;
                         case 2:
-                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
+                            echo '<li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
                                 <li><a href="?page=registration"><i class="fa fa-list-alt"></i> Registratie </a></li>';
-                            if(isset($_SESSION['portfolio'])){
+                            if(isset($_SESSION['portfolio']) && isset($row2)){
                                 echo '<li><a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . "'s Portfolio" .'</a></li>';
                                 echo '<li><a href="?page=cv_1&id='. $row2['User_ID'] . '"><i class="fa fa-table"></i> ' . $row2['User_Name'] . "'s CV en Werkervaring" . '</a></li>';
                                 echo '<li><a href="?page=fotogalerij_1&id='. $row2['User_ID'] . '"><i class="fa fa-camera"></i> ' . $row2['User_Name'] . "'s Projecten" . '</a></li>';
@@ -81,15 +90,14 @@
                             }
                             break;
                         case 5:
-                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
-                            if(isset($_SESSION['portfolio'])){
+                            echo '<li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>'
+                            . '<li><a href="?page=beoordeling"><i class="fa fa-trophy"></i> Beoordeling</a></li>';
+                            if(isset($_SESSION['portfolio']) && isset($row2)){
                                 echo '<li><a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . "'s Portfolio" .'</a></li>';
                                 echo '<li><a href="?page=cv_1&id='. $row2['User_ID'] . '"><i class="fa fa-table"></i> ' . $row2['User_Name'] . "'s CV en Werkervaring" . '</a></li>';
                                 echo '<li><a href="?page=fotogalerij_1&id='. $row2['User_ID'] . '"><i class="fa fa-camera"></i> ' . $row2['User_Name'] . "'s Projecten" . '</a></li>';
                                 echo '<li><a href="?page=Gastenboek&id=' . $row2['User_ID'] . '"><i class="fa fa-edit"></i> ' . $row2['User_Name']. "'s Gastenboek" . '</a></li>';
                                 echo '<li><a href="?page=contact&id=' . $row2['User_ID'] . '"><i class="fa fa-envelope"></i> ' . $row2['User_Name'] . "'s Contact Opnemen" . '</a></li>';
-                                echo '<li><a href="?page=beoordeling&id=' . $row2['User_ID'] . '"><i class="fa fa-trophy"></i> ' . $row2['User_Name'] ."'s Beoordeling" . '</a></li>';
                                 }
                             break;
                         case 4:
@@ -97,9 +105,8 @@
                                 <li><a href="?page=Gastenboek2"><i class="fa fa-edit"></i> Gastenboek</a></li>
                                 <li><a href="?page=styling"><i class="fa fa-wrench"></i> Styling</a></li>
                                 <li><a href="?page=cv"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
-                                <li><a href="?page=beoordeling"><i class="fa fa-trophy"></i> Beoordeling</a></li>
                                 <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
-                            if(isset($_SESSION['portfolio'])){
+                            if(isset($_SESSION['portfolio']) && isset($row2)){
                                 echo '<li><a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . "'s Portfolio" .'</a></li>';
                                 echo '<li><a href="?page=cv_1&id='. $row2['User_ID'] . '"><i class="fa fa-table"></i> ' . $row2['User_Name'] . "'s CV en Werkervaring" . '</a></li>';
                                 echo '<li><a href="?page=fotogalerij_1&id='. $row2['User_ID'] . '"><i class="fa fa-camera"></i> ' . $row2['User_Name'] . "'s Projecten" . '</a></li>';
@@ -108,21 +115,18 @@
                             }
                             break;
                         case 6:
-                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
-                            if(isset($_SESSION['portfolio'])){
+                            echo '<li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
+                            if(isset($_SESSION['portfolio']) && isset($row2)){
                                 echo '<li><a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . "'s Portfolio" .'</a></li>';
                                 echo '<li><a href="?page=cv_1&id='. $row2['User_ID'] . '"><i class="fa fa-table"></i> ' . $row2['User_Name'] . "'s CV en Werkervaring" . '</a></li>';
                                 echo '<li><a href="?page=fotogalerij_1&id='. $row2['User_ID'] . '"><i class="fa fa-camera"></i> ' . $row2['User_Name'] . "'s Projecten" . '</a></li>';
                                 echo '<li><a href="?page=Gastenboek&id=' . $row2['User_ID'] . '"><i class="fa fa-edit"></i> ' . $row2['User_Name']. "'s Gastenboek" . '</a></li>';
                                 echo '<li><a href="?page=contact&id=' . $row2['User_ID'] . '"><i class="fa fa-envelope"></i> ' . $row2['User_Name'] . "'s Contact Opnemen" . '</a></li>';
-                                echo '<li><a href="?page=beoordeling&id=' . $row2['User_ID'] . '"><i class="fa fa-trophy"></i> ' . $row2['User_Name'] ."'s Beoordeling" . '</a></li>';
                             }
                             break;
                         case 7:
-                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
-                            if(isset($_SESSION['portfolio'])){
+                            echo '<li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
+                            if(isset($_SESSION['portfolio']) && isset($row2)){
                                 echo '<li><a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . "'s Portfolio" .'</a></li>';
                                 echo '<li><a href="?page=cv_1&id='. $row2['User_ID'] . '"><i class="fa fa-table"></i> ' . $row2['User_Name'] . "'s CV en Werkervaring" . '</a></li>';
                                 echo '<li><a href="?page=fotogalerij_1&id='. $row2['User_ID'] . '"><i class="fa fa-camera"></i> ' . $row2['User_Name'] . "'s Projecten" . '</a></li>';
@@ -132,10 +136,8 @@
                             break;
                     }
                 }
-                else{
-                    echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>';
-                }
-            ?>
+                
+           ?>
           </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">

@@ -7,13 +7,14 @@
                             <li><a href="index.php"><i class="icon-dashboard"></i> Hoofdpagina</a></li>
                             <?php
                               echo '<li><a href="?page=cv"><i class="icon-dashboard"></i>'  . "CV</a></li>";
+                              $imgpath = $row['User_Photo'];
                             ?>
                         </ol>
                     </div>
                     <div class="frontendcv">
                         <div class="infocv">
                             <div class="pasfotocv">
-                                <img src="img/Pasfoto.jpg" alt="pasfoto">
+                                <img src="<?php echo $imgpath ?>" alt="pasfoto">
                             </div>
                         </div>
 						<div id="info">

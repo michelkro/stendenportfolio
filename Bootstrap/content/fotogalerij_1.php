@@ -6,7 +6,7 @@
             <ol class="breadcrumb">
               <?php
                 echo '<li><a href="?page=portfolio&id='. $_GET['id'] .'"><i class="icon-dashboard"></i>'. $row2['User_Name'] . "'s Portfolio</a></li>";
-                echo '<li><a href="?page=fotogalerij_1&id='. $_GET['id'] .'"><i class="icon-dashboard"></i>'  . "Projecten</a></li>";
+                echo '<li><a href="?page=fotogalerij_1&id='. $_GET['id'] .'"><i class="icon-dashboard"></i>'. $row2['User_Name'] . "'s Projecten</a></li>";
               ?>
             </ol>
           </div>
@@ -29,7 +29,7 @@
                             $result2 = mysqli_query($db, $query2);
                             $item2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
                             echo "<h1>" . $item2['Project_Name'] . "</h1>";
-                            echo '<a href="?page=projectbescrijving&Project=projects/'.$row['User_Email'].'/'.$file.'&ID='.$item2['Project_ID'].'"><img src="' . $dir . $file . '" height="250px" width="250px"/></a>';
+                            echo '<a href="?page=projectbescrijving_1&Project=projects/'.$row2['User_Email'].'/'.$file.'&ID='.$item2['Project_ID'].'"><img src="' . $dir . $file . '" height="250px" width="250px"/></a>';
                             echo '</div>';
                         }
                     }

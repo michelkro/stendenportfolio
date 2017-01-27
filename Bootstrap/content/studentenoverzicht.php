@@ -7,6 +7,7 @@
                 <li><a href="index.php"><i class="icon-dashboard"></i> Hoofdpagina</a></li>
             </ol>
             <?php
+                
                 $query = "SELECT User_Name, User_Education, User_Email, User_ID FROM user WHERE User_Type_ID = 4 AND User_ID !=" . $row['User_ID'];                   
                 $result = mysqli_query($db, $query);
 
@@ -27,10 +28,8 @@
                         "</td><td>" . $item['User_Education'] .
                         "</td><td>" . $item['User_Email'] .
                         "</td>";
-                        echo '<td><a href="?page=portfolio&id=' . $item['User_ID'] . '"><input type = "submit" value = " Portfolio bekijken "/></a></td></tr>';
+                        echo '<td><a href="content/StudentSelect.php?id=' . $item['User_ID'] . '"><input type = "submit" value = " Student selecteren "/></a></td></tr>';
                         echo "</tbody>";
-                        $_SESSION['portfolio'] = $item['User_ID'];
-                        
                     }
                     mysqli_free_result($result);
                     echo "</table>";

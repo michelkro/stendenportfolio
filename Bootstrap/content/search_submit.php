@@ -29,7 +29,7 @@
 
                     while($ser = mysqli_fetch_array($sql)) {
                         echo $ser['User_Name'];
-                        echo '<a href="../index.php?page=portfolio&id=' . $ser['User_ID'] . '"></br><input type = "submit" value = " Portfolio bekijken "/></a> </br>';
+                        echo '<a href="index.php?page=portfolio&id=' . $ser['User_ID'] . '"></br><input type = "submit" value = " Portfolio bekijken "/></a> </br>';
                         $_SESSION['portfolio'] = $ser['User_ID'];
                     }
                 }

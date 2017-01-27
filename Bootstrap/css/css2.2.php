@@ -92,6 +92,10 @@ p img:hover{
 #profielfoto img{
     border-radius: 5px;
 }
+.margin{
+	padding: 2%;
+	border: 1px solid <?php echo $Header; ?>;
+}  
 .form_right{
 }
  

@@ -139,7 +139,10 @@ svg:not(:root) {
 figure {
   margin: 0;
 }
- 
+.margin{
+	padding: 2%;
+	border: 1px solid <?php echo $Header; ?>;
+}  
 fieldset {
   padding: 0.35em 0.625em 0.75em;
   margin: 0 2px;
@@ -7139,4 +7142,11 @@ td.visible-print {
 *{
     font-family: <?php echo $Font; ?> !important;
     color: <?php echo $Textcolor; ?> !important;
+}
+#project5{
+    width: 30%;
+    height: 300px;
+    float: left;
+    margin: 5px;
+    text-align: center;
 }

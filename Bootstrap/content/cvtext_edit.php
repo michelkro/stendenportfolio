@@ -2,10 +2,12 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Blank Page <small>A Blank Slate</small></h1>
+                        <h1>CV, Werkervaring en Studie </h1>
                         <ol class="breadcrumb">
                             <li><a href="index.php"><i class="icon-dashboard"></i> Hoofdpagina</a></li>
-                            <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
+                            <?php
+                              echo '<li><a href="?page=cv"><i class="icon-dashboard"></i>'  . "CV</a></li>";
+                            ?>
                         </ol>
                     </div>
                     <div class="frontendcv">
@@ -81,7 +83,6 @@
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
                                             echo "<p>{$Row['Werkervaring']}</p>";
-                                            echo "<p><a href ='?page=cvwerkervaring_edit&ID=" . $row['User_ID'] . "'>Edit</a><p>";
                                         }
                                     }
                                     mysqli_free_result($QueryResult);
@@ -119,7 +120,6 @@
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
                                             echo "<p>{$Row['Opleidingen']}</p>";
-                                            echo "<p><a href ='?page=cvopleidingen_edit&ID=" . $row['User_ID'] . "'>Edit</a><p>";
                                         }
                                     }
                                     mysqli_free_result($QueryResult);

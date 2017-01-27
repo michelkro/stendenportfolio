@@ -76,7 +76,10 @@ p img:hover{
 #verzendenrij{
     margin-left: 10px;
 }
- 
+.margin{
+	padding: 2%;
+	border: 1px solid <?php echo $Header; ?>;
+}  
 #wrapper {
   padding-left: 0;
 }

@@ -26,7 +26,25 @@ if (isset($_POST['signup'])) {
             $usertype = null;
             break;
     }
-    
+    if ((($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg") || ($_FILES["file"]["type"] == "image/pjpeg") || ($_FILES["file"]["type"] == "image/png"))){
+		if ($_FILES["file"]["error"] > 0){
+			echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
+		} else{
+			//echo "Upload: " . $_FILES["file"]["name"] . "<br />";
+			//echo '<br>'. $_FILES["file"]["type"] . "<br />";
+			$array = explode("/", $_FILES["file"]["type"]);
+			$extension = $array[1];
+			//echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
+			//echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br />";
+							
+							
+			move_uploaded_file($_FILES["file"]["tmp_name"], "img/profielfoto/".$_POST['email'].".".$extension);
+			//echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
+			if(!file_exists("img/profielfoto/".$_POST['email'].".".$extension)){
+			mkdir("img/profielfoto/".$_POST['email'].".".$extension);				
+			}
+		}
+	}
     //name can contain only alpha characters and space
     if (!preg_match("/^[a-zA-Z ]+$/",$name2)) {
         $error2 = true;
@@ -48,14 +66,13 @@ if (isset($_POST['signup'])) {
         $error2 = true;
         $type_error = "Please select an usertype";
     }
-    if ($error2 == false) {
-        if(mysqli_query($db, "INSERT INTO user(User_Name,User_Email,User_Password,User_Type_ID) VALUES('" . $name2 . "', '" . $email2 . "', '" . md5($password2). "', '" . $usertype . "')")) {
+   if ($error2 == false) {
+        if(mysqli_query($db, "INSERT INTO user(User_Name,User_Email,User_Password,User_Type_ID,User_Photo) VALUES('" . $name2 . "', '" . $email2 . "', '" . md5($password2). "', '" . $usertype . "', 'img/profielfoto/".$_POST['email'].".".$extension."' )")) {
             $successmsg = "Successfully Registered!";
             $id = mysqli_query($db, "SELECT `User_ID` FROM USER WHERE `User_Email` = '" . $email2 . "' ");
-            $row5 = mysqli_fetch_array($id,MYSQLI_ASSOC);
+            $row = mysqli_fetch_array($id,MYSQLI_ASSOC);
             
-            $design = mysqli_query($db, "INSERT INTO design(User_ID) VALUES('" . $row5['User_ID'] . "');" );
-            $cv = mysqli_query($db, "INSERT INTO Text_CV(User_ID) VALUES('" . $row5['User_ID'] . "');");
+            $design = mysqli_query($db, "INSERT INTO design(User_ID) VALUES('" . $row['User_ID'] . "')" );
         } else {
             $errormsg = "Error in registering...Please try again later!";
         }
@@ -73,7 +90,7 @@ if (isset($_POST['signup'])) {
             </ol>
         </div>
         <div class="frontendhome">
-        <form role="form" action="?page=registration" method="post" name="signupform">
+        <form role="form" action="?page=registration" method="post" name="signupform" enctype="multipart/form-data">
             <fieldset>
                 <legend></legend>
                     <label for="name">Name :</label>
@@ -104,6 +121,9 @@ if (isset($_POST['signup'])) {
                     </label>
                     <label for="name">Admin
                     <input type="radio" name="usertype" value="4" required class="form-control" />
+                    </label>
+                    <label for="name">Project picture
+                    <input type="file" name="file">
                     </label>
                     <span class="text-danger"><?php if (isset($type_error)) echo $type_error; ?></span>
             </fieldset>

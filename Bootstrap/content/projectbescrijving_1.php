@@ -3,10 +3,7 @@
 			
 			$array = explode("/", $_GET['Project']);
 			$array2 = explode(".", $array['2']);
-			echo  '<p><a href="?page=fotogalerij"><input type="submit" value="terug naar projecten"></a>';
-			echo  '<form action="#" method="POST">
-			<p><input type="submit" name="download" value="download project"></p>
-		</form>';
+			echo  '<p><a href="?page=fotogalerij_1&id='.$row2['User_ID'].'"><input type="submit" value="terug naar projecten"></a>';
 			echo '<h1>'.$array2[0].'</h1>';
 			echo "<p><img src='projects/".$array[1]."/projectpicture/".$array[2]."'></p>";
 			
@@ -90,8 +87,7 @@
 		
 		
 		?>
-		
-                <?php
-                    echo  '</br><a href="?page=projectbeschrijvingedit&Project='.$_GET['Project'].'&ID='. $_GET['ID'].'"> <input type="submit" value="edit"></a></p>';
-                ?>
+		<form action="#" method="POST">
+			<p><input type="submit" name="download" value="download project"></p>
+		</form>
     </div><!-- /#wrapper -->
