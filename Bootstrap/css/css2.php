@@ -1,233 +1,245 @@
-/* 
-Author: Start Bootstrap - http://startbootstrap.com
-'SB Admin' HTML Template by Start Bootstrap
-
-All Start Bootstrap themes are licensed under Apache 2.0. 
-For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap.com!
-*/
-
-/* ATTN: This is mobile first CSS - to update 786px and up screen width use the media query near the bottom of the document! */
-
-/* Global Styles */
-
 <?php
-header("Content-type: text/css");
-include('session.php');
+    header("Content-type: text/css");
+    include '../content/session.php';
+    if(isset($_SESSION['login_user'])){
+        $Background = $BackgroundColor_Base;
+        $Hoveractivemenu = $HoverActiveMenu_Base;
+        $Menu = $MenuColor_Base;
+    }else{
+        $Background = 'lightgray';
+        $Hoveractivemenu = '#FF9800';
+        $Menu = '#FF9800';
+    }
 ?>
+
+body{
+	background-color: <?php echo $Background; ?>;
+}	
+html{
+    background-color: <?php echo $Background; ?>;
+}
+ 
+#page-wrapper{
+    background-color: <?php echo $Background; ?>;
+}
+ 
 #header{
-	background-image: url("header.jpg")
+    background-image: url("header.jpg")
 }
 body {
   margin-top: 50px;
 }
-
+ 
 #voornaamrij{
-	margin-bottom: 25px;
-	width: 100%;
-	float: left;
+    margin-bottom: 25px;
+    width: 100%;
+    float: left;
 }
-
+ 
 #achternaamrij{
-	margin-top: 10px;
-	margin-bottom: 20px;
-	width: 100%;
-	float: left;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    float: left;
 }
-
+ 
 #berichtrij{
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
-
+ 
 .margin{
-	margin-top: 55px;
+    margin-top: 55px;
 }
-
+ 
 #verschillendekleuren{
-	width: 100%;
-	height: 60px;
+    width: 100%;
+    height: 60px;
 }
-
+ 
 .kleur{
-	text-align: center;
-	width: 10%;
-	height: 10%;
-	margin-right: 50px;
-	float: left;
+    text-align: center;
+    width: 10%;
+    height: 10%;
+    margin-right: 50px;
+    float: left;
 }
-
+ 
 #cv img{
-	width: 100%;
-	max-width: 300px;
+    width: 100%;
+    max-width: 300px;
 }
-
+ 
 p img:hover{
-	border: 3px solid #777
+    border: 3px solid #777
 }
-
+ 
 #verzendenrij{
-	margin-left: 10px;
+    margin-left: 10px;
 }
-
+ 
 #wrapper {
   padding-left: 0;
 }
-
+ 
 .standardwith{
-	width: 70px;
+    width: 70px;
 }
-
+ 
 #page-wrapper {
   width: 100%;
   padding: 5px 15px;
 }
 .form_left{
-	
+     
 }
-
+ 
 #profielfoto{
-	margin-right: 5px;
-	margin-left: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 #profielfoto img{
-	border-radius: 5px;
+    border-radius: 5px;
 }
 .form_right{
 }
-
+ 
 /* Nav Messages */
-
+ 
 .messages-dropdown .dropdown-menu .message-preview .avatar,
 .messages-dropdown .dropdown-menu .message-preview .name,
 .messages-dropdown .dropdown-menu .message-preview .message,
 .messages-dropdown .dropdown-menu .message-preview .time {
   display: block;
 }
-
+ 
 .messages-dropdown .dropdown-menu .message-preview .avatar {
   float: left;
   margin-right: 15px;
 }
-
+ 
 .messages-dropdown .dropdown-menu .message-preview .name {
   font-weight: bold;
 }
-
+ 
 .messages-dropdown .dropdown-menu .message-preview .message {
   font-size: 12px;
 }
-
+ 
 .messages-dropdown .dropdown-menu .message-preview .time {
   font-size: 12px;
 }
-
-
+ 
+ 
 /* Nav Announcements */
-
+ 
 .announcement-heading {
   font-size: 50px;
   margin: 0;
 }
-
+ 
 .announcement-text {
   margin: 0;
 }
-
+ 
 /* Table Headers */
-
+ 
 table.tablesorter thead {
   cursor: pointer;
 }
-
+ 
 table.tablesorter thead tr th:hover {
   background-color: #f5f5f5;
 }
-
+ 
 /* Flot Chart Containers */
-
+ 
 .flot-chart {
   display: block;
   height: 400px;
 }
-
+ 
 .flot-chart-content {
   width: 100%;
   height: 100%;
 }
-
+ 
 /* Edit Below to Customize Widths > 768px */
 @media (min-width:768px) {
-
+ 
   /* Wrappers */
-
+ 
   #wrapper {
-	padding-left: 225px;
+    padding-left: 225px;
   }
-
+ 
   #page-wrapper {
-	padding: 15px 25px;
+    padding: 15px 25px;
   }
-
+ 
   /* Side Nav */
-
+ 
   .side-nav {
-	margin-left: -225px;
-	left: 225px;
-	width: 225px;
-	position: fixed;
-	top: 50px;
-	height: 100%;
-	border-radius: 0;
-	border: none;
-	background-color: #222222;
-	overflow-y: auto;
+    margin-left: -225px;
+    left: 225px;
+    width: 225px;
+    position: fixed;
+    top: 50px;
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    background-color: <?php echo $Menu; ?>;
+    overflow-y: auto;
   }
-
+  .dropdown-menu{
+	background-color: <?php echo $Menu; ?>;
+  }
   /* Bootstrap Default Overrides - Customized Dropdowns for the Side Nav */
-
+ 
   .side-nav>li.dropdown>ul.dropdown-menu {
-	position: relative;
-	min-width: 225px;
-	margin: 0;
-	padding: 0;
-	border: none;
-	border-radius: 0;
-	background-color: transparent;
-	box-shadow: none;
-	-webkit-box-shadow: none;
+    position: relative;
+    min-width: 225px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+    -webkit-box-shadow: none;
   }
-
+ 
   .side-nav>li.dropdown>ul.dropdown-menu>li>a {
-	color: #999999;
-	padding: 15px 15px 15px 25px;
+    color: #999999;
+    padding: 15px 15px 15px 25px;
   }
-
+ 
   .side-nav>li.dropdown>ul.dropdown-menu>li>a:hover,
   .side-nav>li.dropdown>ul.dropdown-menu>li>a.active,
   .side-nav>li.dropdown>ul.dropdown-menu>li>a:focus {
-	color: #fff;
-	background-color: #080808;
+    color: #fff;
+    background-color: #080808;
   }
-
+ 
   .side-nav>li>a {
-	width: 225px;
+    width: 225px;
   }
-
+ 
   .navbar-inverse .navbar-nav>li>a:hover,
   .navbar-inverse .navbar-nav>li>a:focus {
-	background-color: #080808;
+    background-color: <?php echo $Hoveractivemenu ?>;
   }
-
+ 
   /* Nav Messages */
-
+ 
   .messages-dropdown .dropdown-menu {
-	min-width: 300px;
+    min-width: 300px;
   }
-
+ 
   .messages-dropdown .dropdown-menu li a {
-	white-space: normal;
+    white-space: normal;
   }
-
+ 
 }
+ 
 
 /*Hoofdpagina*/
 
@@ -319,39 +331,48 @@ table.tablesorter thead tr th:hover {
 
 .frontendcv{
     background-color: burlywood;
-    height: 750px;
-    width: 1650px;
+    height: auto;
+    width: 100%;
 }
 .pasfotocv img{
-    margin: 10px;
-    width: auto;
-    height: auto;
-    max-width: 250px;
+    border: 3px solid #F44336;
+    width: 100%;
+    border-radius: 8px;
     float: left;
 }
 .infocv{
-    background-color: teal;
-    margin-top: 10px;
+    background-color: #F44336;
     margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    height: 730px;
-    width: 270px;
+    height: 100%;
+	margin-bottom: 100%;
+    width: 25%;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     float: left;
+	
 }
 .cv{
-   background-color: teal;
-   margin: 10px;
-   width: 660px;
-   height: 730px;
+   background-color: #2196F3;
+   margin-left: 2%;
+   width: 70%;
+   height: 100%;
+   border-radius: 8px;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    float: left;
 }
 .we{
-    background-color: teal;
-    margin: 10px;
-    width: 660px;
-    height: 730px;
+    background-color: #2196F3;
+    margin-left: 2%;
+	margin-top: 2%;
+    width: 70%;
+    height: 100%;
+	border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     float: left;
+}
+#info{
+	heigth: 100%;
+	width: 100%;
 }
 .we h2{
     text-align: center;
@@ -367,4 +388,3 @@ table.tablesorter thead tr th:hover {
     margin-left: 10px;
     
 }
-
