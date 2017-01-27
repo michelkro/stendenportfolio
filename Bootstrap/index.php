@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <?php
+        include ('content/session.php');
+        if(isset($_GET['id'])){
+            $_SESSION['portfolio'] = $_GET['id'];
+        }
+        if (!isset($_SESSION['login_user']) || $row['User_Type_ID'] != 4){
+            if (empty($_GET['page'])) {
+                $_GET['page'] = "Guest";
+            }
+        }else{
+            if (empty($_GET['page'])) {
+                $_GET['page'] = "home";
+            }
+        }
+        if(isset($_GET['id'])){
+            echo '<link href="css/css2.1.php" rel="stylesheet">'
+            . '<link href="css/css2.2.php" rel="stylesheet">';
+        }else{
+            echo '<link href="css/css1.php" rel="stylesheet">'
+            . '<link href="css/css2.php" rel="stylesheet">';
+        }
+    ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <title>Stenden Portfolio</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-
-    <!-- Add custom CSS here -->
-    <link href="css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
   </head>
-  <?php
-  	include ('session.php');
-	/* include login sessions for the use of user information */
-  ?>
   <body>
 
     <div id="wrapper">
@@ -44,55 +57,78 @@
                 if(isset($_SESSION['login_user'])){
                     switch ($row['User_Type_ID']){
                         case 1:
-                            echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
-                                <li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
-                                <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>
-                                <li><a href="styling.php"><i class="fa fa-wrench"></i> Styling</a></li>
-                                <li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>
-                                <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
-                                <li><a href="registration.php"><i class="fa fa-list-alt"></i> Registratie </a></li>';
+                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
+                                <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
+                                <li><a href="?page=registration"><i class="fa fa-list-alt"></i> Registratie </a></li>';
+                            if(isset($_SESSION['portfolio'])){
+                                echo '<li><a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . "'s Portfolio" .'</a></li>';
+                                echo '<li><a href="?page=cv_1&id='. $row2['User_ID'] . '"><i class="fa fa-table"></i> ' . $row2['User_Name'] . "'s CV en Werkervaring" . '</a></li>';
+                                echo '<li><a href="?page=fotogalerij_1&id='. $row2['User_ID'] . '"><i class="fa fa-camera"></i> ' . $row2['User_Name'] . "'s Projecten" . '</a></li>';
+                                echo '<li><a href="?page=Gastenboek&id=' . $row2['User_ID'] . '"><i class="fa fa-edit"></i> ' . $row2['User_Name']. "'s Gastenboek" . '</a></li>';
+                                echo '<li><a href="?page=contact&id=' . $row2['User_ID'] . '"><i class="fa fa-envelope"></i> ' . $row2['User_Name'] . "'s Contact Opnemen" . '</a></li>';
+                            }
                             break;
                         case 2:
-                            echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
-                                <li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
-                                <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>
-                                <li><a href="styling.php"><i class="fa fa-wrench"></i> Styling</a></li>
-                                <li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>
-                                <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
-                                <li><a href="registration.php"><i class="fa fa-list-alt"></i> Registratie </a></li>';
+                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
+                                <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
+                                <li><a href="?page=registration"><i class="fa fa-list-alt"></i> Registratie </a></li>';
+                            if(isset($_SESSION['portfolio'])){
+                                echo '<li><a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . "'s Portfolio" .'</a></li>';
+                                echo '<li><a href="?page=cv_1&id='. $row2['User_ID'] . '"><i class="fa fa-table"></i> ' . $row2['User_Name'] . "'s CV en Werkervaring" . '</a></li>';
+                                echo '<li><a href="?page=fotogalerij_1&id='. $row2['User_ID'] . '"><i class="fa fa-camera"></i> ' . $row2['User_Name'] . "'s Projecten" . '</a></li>';
+                                echo '<li><a href="?page=Gastenboek&id=' . $row2['User_ID'] . '"><i class="fa fa-edit"></i> ' . $row2['User_Name']. "'s Gastenboek" . '</a></li>';
+                                echo '<li><a href="?page=contact&id=' . $row2['User_ID'] . '"><i class="fa fa-envelope"></i> ' . $row2['User_Name'] . "'s Contact Opnemen" . '</a></li>';
+                            }
                             break;
                         case 5:
-                            echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
-                                <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>
-                                <li><a href="beoordeling.php"><i class="fa fa-trophy"></i> Beoordeling</a></li>
-                                <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
+                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
+                                <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
+                            if(isset($_SESSION['portfolio'])){
+                                echo '<li><a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . "'s Portfolio" .'</a></li>';
+                                echo '<li><a href="?page=cv_1&id='. $row2['User_ID'] . '"><i class="fa fa-table"></i> ' . $row2['User_Name'] . "'s CV en Werkervaring" . '</a></li>';
+                                echo '<li><a href="?page=fotogalerij_1&id='. $row2['User_ID'] . '"><i class="fa fa-camera"></i> ' . $row2['User_Name'] . "'s Projecten" . '</a></li>';
+                                echo '<li><a href="?page=Gastenboek&id=' . $row2['User_ID'] . '"><i class="fa fa-edit"></i> ' . $row2['User_Name']. "'s Gastenboek" . '</a></li>';
+                                echo '<li><a href="?page=contact&id=' . $row2['User_ID'] . '"><i class="fa fa-envelope"></i> ' . $row2['User_Name'] . "'s Contact Opnemen" . '</a></li>';
+                                echo '<li><a href="?page=beoordeling&id=' . $row2['User_ID'] . '"><i class="fa fa-trophy"></i> ' . $row2['User_Name'] ."'s Beoordeling" . '</a></li>';
+                                }
                             break;
                         case 4:
-                            echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="cv.php"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
-                                <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
-                                <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="styling.php"><i class="fa fa-wrench"></i> Styling</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
+                            echo '<li><a href="?page=fotogalerij"><i class="fa fa-camera"></i> Projecten</a></li>
+                                <li><a href="?page=Gastenboek2"><i class="fa fa-edit"></i> Gastenboek</a></li>
+                                <li><a href="?page=styling"><i class="fa fa-wrench"></i> Styling</a></li>
+                                <li><a href="?page=cv"><i class="fa fa-table"></i> CV en Werkervaring</a></li>
+                                <li><a href="?page=beoordeling"><i class="fa fa-trophy"></i> Beoordeling</a></li>
+                                <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
+                            if(isset($_SESSION['portfolio'])){
+                                echo '<li><a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . "'s Portfolio" .'</a></li>';
+                                echo '<li><a href="?page=cv_1&id='. $row2['User_ID'] . '"><i class="fa fa-table"></i> ' . $row2['User_Name'] . "'s CV en Werkervaring" . '</a></li>';
+                                echo '<li><a href="?page=fotogalerij_1&id='. $row2['User_ID'] . '"><i class="fa fa-camera"></i> ' . $row2['User_Name'] . "'s Projecten" . '</a></li>';
+                                echo '<li><a href="?page=Gastenboek&id=' . $row2['User_ID'] . '"><i class="fa fa-edit"></i> ' . $row2['User_Name']. "'s Gastenboek" . '</a></li>';
+                                echo '<li><a href="?page=contact&id=' . $row2['User_ID'] . '"><i class="fa fa-envelope"></i> ' . $row2['User_Name'] . "'s Contact Opnemen" . '</a></li>';
+                            }
                             break;
                         case 6:
-                            echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
-                                <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="studentenoverzicht.php"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
+                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
+                                <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
+                            if(isset($_SESSION['portfolio'])){
+                                echo '<li><a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . "'s Portfolio" .'</a></li>';
+                                echo '<li><a href="?page=cv_1&id='. $row2['User_ID'] . '"><i class="fa fa-table"></i> ' . $row2['User_Name'] . "'s CV en Werkervaring" . '</a></li>';
+                                echo '<li><a href="?page=fotogalerij_1&id='. $row2['User_ID'] . '"><i class="fa fa-camera"></i> ' . $row2['User_Name'] . "'s Projecten" . '</a></li>';
+                                echo '<li><a href="?page=Gastenboek&id=' . $row2['User_ID'] . '"><i class="fa fa-edit"></i> ' . $row2['User_Name']. "'s Gastenboek" . '</a></li>';
+                                echo '<li><a href="?page=contact&id=' . $row2['User_ID'] . '"><i class="fa fa-envelope"></i> ' . $row2['User_Name'] . "'s Contact Opnemen" . '</a></li>';
+                                echo '<li><a href="?page=beoordeling&id=' . $row2['User_ID'] . '"><i class="fa fa-trophy"></i> ' . $row2['User_Name'] ."'s Beoordeling" . '</a></li>';
+                            }
                             break;
                         case 7:
-                            echo '<li class="active"><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
-                                <li><a href="fotogalerij.php"><i class="fa fa-camera"></i> Fotogalerij</a></li>
-                                <li><a href="Gastenboek.php"><i class="fa fa-edit"></i> Gastenboek</a></li>
-                                <li><a href="contact.php"><i class="fa fa-envelope"></i> Contact Opnemen</a></li>';
+                            echo '<li><a href="index.php"><i class="fa fa-home"></i> Hoofdpagina</a></li>
+                                <li><a href="?page=studentenoverzicht"><i class="fa fa-list-alt"></i> Overzicht alle studenten</a></li>';
+                            if(isset($_SESSION['portfolio'])){
+                                echo '<li><a href="?page=portfolio&id='. $row2['User_ID'] . '"><i class="fa fa-home"></i> ' . $row2['User_Name'] . "'s Portfolio" .'</a></li>';
+                                echo '<li><a href="?page=cv_1&id='. $row2['User_ID'] . '"><i class="fa fa-table"></i> ' . $row2['User_Name'] . "'s CV en Werkervaring" . '</a></li>';
+                                echo '<li><a href="?page=fotogalerij_1&id='. $row2['User_ID'] . '"><i class="fa fa-camera"></i> ' . $row2['User_Name'] . "'s Projecten" . '</a></li>';
+                                echo '<li><a href="?page=Gastenboek&id=' . $row2['User_ID'] . '"><i class="fa fa-edit"></i> ' . $row2['User_Name']. "'s Gastenboek" . '</a></li>';
+                                echo '<li><a href="?page=contact&id=' . $row2['User_ID'] . '"><i class="fa fa-envelope"></i> ' . $row2['User_Name'] . "'s Contact Opnemen" . '</a></li>';
+                            }
                             break;
                     }
                 }
@@ -104,138 +140,49 @@
 
           <ul class="nav navbar-nav navbar-right navbar-user">
               <li class ='dropdown-header'>
-                    <form  method="post" action="search_submit.php?go"  id="searchform" style="padding-top:4%;"> 
-                    <input  type="text" name="name"> 
-                    <input  type="submit" name="submit" value="Search"> 
-                    </form> 
+                    <form action="?page=search_submit" id="navbar" method="post"> 
+                    <input class="term" type="text" id="term" name="search" placeholder=" Zoeken..." required />  
+                    <input type="submit" class='submit'  id="submit" value="zoek" />
+                    </form>
+                    <script type="text/javascript"> 
+                    document.getElementById('term').oninput = function() {
+                        document.getElementById('submit').disabled = !this.value.trim();
+                    }
+                    </script>
               </li>
             <li class="dropdown user-dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
                     <?php
-                    if($_SESSION['login_user'] != null){
-                        echo $row['User_Name'];
-                        echo '<ul class="dropdown-menu">
-                        <li><a href="logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
-                        </ul>';
-                    }else {
-                        echo '<li><a href="login.php"><i class="fa fa-power-off"></i> Log In</a></li>';
-                    }
-                    ?>
+                        if($_SESSION['login_user'] != null){
+                            echo $row['User_Name'];
+                            echo '<ul class="dropdown-menu">
+                            <li><a href="?page=logout"><i class="fa fa-power-off"></i> Log Out</a></li>
+                            </ul>';
+                        }else {
+                            echo '<li><a href="?page=login"><i class="fa fa-power-off"></i> Log In</a></li>';
+                        }
+                    ?> 
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </nav>
-
-      <div id="page-wrapper">
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Frits Huig <small>Portfolio</small></h1>
-                        <ol class="breadcrumb">
-                            <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
-                            <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
-                        </ol>
-                    </div>
-                    <div id="content">
-                        <div class="info">
-                            <div class="pasfoto">
-                                <img src="img/Pasfoto.jpg" alt="pasfoto">
-                            </div>
-                            <div class="gegevens">
-                                <h2>Personelijke gegevens</h2>
-                       <?php
-                            $DBConnect = mysqli_connect("localhost", "root", "");
-                            if ($DBConnect === FALSE)
-                            {
-                                echo "<p>Unable to connect to the database server.</p>" . "<p>Error code " . mysqli_error() . ": " . mysqli_error() . "</p>";
-                            } else
-                            {
-                                $DBName = "project_portfolio";
-                                if (!mysqli_select_db($DBConnect, $DBName))
-                                {
-                                    echo "<p>Er is geen cv tekst</p>";
-                                } else
-                                {
-                                    $TableName = "Text_CV";
-                                    $SQLstring = "SELECT * FROM $TableName";
-                                    $QueryResult = mysqli_query($DBConnect, $SQLstring);
-                                    if (mysqli_num_rows($QueryResult) == 0)
-                                    {
-                                        echo "<p>There are no textfields!</p>";
-                                    } else
-                                    {
-
-                                        while ($Row = mysqli_fetch_assoc($QueryResult))
-                                        {
-                                            echo "<p>{$Row['Persoonlijke_Gegevens']}</p>";
-                                            echo "<p><a href ='indexpersoonlijkegegevens_edit.php?cvID=" . $Row['cvID'] . "'>Edit</a><p>";
-                                        }
-                                    }
-                                    mysqli_free_result($QueryResult);
-                                }
-                                mysqli_close($DBConnect);
-                            }
-
-                           
-                            ?> 
-                            </div>
-                        </div>
-                        <div class="overjouzelf">
-                            <h1>Welkom op mijn portfolio</h1>
-                       <?php
-                            $DBConnect = mysqli_connect("localhost", "root", "");
-                            if ($DBConnect === FALSE)
-                            {
-                                echo "<p>Unable to connect to the database server.</p>" . "<p>Error code " . mysqli_error() . ": " . mysqli_error() . "</p>";
-                            } else
-                            {
-                                $DBName = "project_portfolio";
-                                if (!mysqli_select_db($DBConnect, $DBName))
-                                {
-                                    echo "<p>Er is geen cv tekst</p>";
-                                } else
-                                {
-                                    $TableName = "Text_CV";
-                                    $SQLstring = "SELECT * FROM $TableName";
-                                    $QueryResult = mysqli_query($DBConnect, $SQLstring);
-                                    if (mysqli_num_rows($QueryResult) == 0)
-                                    {
-                                        echo "<p>There are no textfields!</p>";
-                                    } else
-                                    {
-
-                                        while ($Row = mysqli_fetch_assoc($QueryResult))
-                                        {
-                                            echo "<p>{$Row['Voorsteltekst']}</p>";
-                                            echo "<p><a href ='indexvoorsteltekst_edit.php?cvID=" . $Row['cvID'] . "'>Edit</a><p>";
-                                        }
-                                    }
-                                    mysqli_free_result($QueryResult);
-                                }
-                                mysqli_close($DBConnect);
-                            }
-
-                           
-                            ?>                   
-                        </div>
-                        <div id="eigenfotos">
-                            <div class="fototrots">
-                                <img src="img/test1.jpg" alt="test">
-                            </div>
-                            <div class="fototrots">
-                                <img src="img/test2.png" alt="test">
-                            </div>
-                            <div class="fototrots">
-                                <img src="img/test3.png" alt="test">
-                            </div>
-                            <div class="fototrots">
-                                <img src="img/test4.jpg" alt="test">
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- /.row -->
-
-            </div><!-- /#page-wrapper -->
+      <?php
+            if (empty($_GET['page'])){
+                $page = "home";
+            }
+            elseif (!file_exists("content/" . $_GET['page'] . '.php')){
+                $page = 'not-found';
+            }
+            elseif (!empty($_GET['page'])){
+                $page = $_GET['page'];
+            }
+            else{
+                $page = "home";
+            }
+            if (file_exists("content/" . $_GET['page'] . '.php')) {
+                include("content/" . $page . ".php");
+            }
+        ?>
 
     </div><!-- /#wrapper -->
 
