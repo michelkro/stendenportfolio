@@ -34,8 +34,8 @@ if (empty($_POST['opleidingen']))
                 echo "<p>Unable to execute the query.</p>" . "<p>Error code " . mysqli_error($DBConnect) . ": " . mysqli_error($DBConnect) . "</p>";
             } else
             {
-
-                echo header("location:cv.php?cvID=" . $cvID . "");
+				
+                echo header("location:index.php?page=cv&cvID=" . $cvID . "");
             }
         }
         mysqli_close($DBConnect);

@@ -5,7 +5,7 @@
             <h1>Stijl je portfolio</h1>
             <ol class="breadcrumb">
               <li><a href="index.php"><i class="icon-dashboard"></i> Hoofdpagina</a></li>
-              <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
+              <li class="active"><i class="icon-file-alt"></i> Styling</li>
             </ol>
           </div>
         </div><!-- /.row -->

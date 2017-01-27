@@ -17,9 +17,7 @@
                         <div class="cv">
                             <h2>CV</h2>
                             <?php
-//        programmeur : Danny Katerbarg
-//        datum : 03-01-2017
-//        functie edit
+
 
                             $cvID = $_GET["cvID"];
                             $DBConnect = mysqli_connect("localhost", "root", "");
@@ -35,7 +33,7 @@
                                 } else
                                 {
                                     $TableName = "Text_CV";
-                                    $SQLstring = "SELECT * FROM $TableName WHERE cvID = $cvID";
+                                    $SQLstring = "SELECT * FROM ".$TableName." WHERE cvID = ".$cvID;
                                     $QueryResult = mysqli_query($DBConnect, $SQLstring);
                                     if (mysqli_num_rows($QueryResult) == 0)
                                     {
@@ -44,11 +42,11 @@
                                     {
                                         echo"<h2>please vul in om je cv te bewerken.</h2>";
                                         echo"<div id='form'>";
-                                        echo "<form method='POST' action='cvtext_done.php?cvID=" . $cvID . "'>";
+                                        echo "<form method='POST' action='?page=cvtext_done&cvID=" . $cvID . "'>";
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
 
-                                            echo "<p>CV tekst:<textarea rows='25' cols='100' name='textarea'>" . $Row['Textarea'] . "</textarea></p>";
+                                            echo "<p>CV tekst:<textarea rows='25' cols='100' name='textarea' class='letterkleur'>" . $Row['Textarea'] . "</textarea></p>";
                                             echo "<p><input type='submit' value='Enter'> <input type='reset' value='Reset'></p>";
                                         }
                                         echo "</form>";
@@ -87,14 +85,14 @@
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
                                             echo "<p>{$Row['Werkervaring']}</p>";
-                                            echo "<p><a href ='cvwerkervaring_edit.php?cvID=" . $Row['cvID'] . "'>Edit</a><p>";
+                                            echo "<p><a href ='index.php?page=cvwerkervaring_edit&cvID=" . $Row['cvID'] . "'>Edit</a><p>";
                                         }
                                     }
                                     mysqli_free_result($QueryResult);
                                 }
                                 mysqli_close($DBConnect);
                             }
-                            ?> 
+                            ?>							
                             <h2>Studie</h2>
                             <?php
                             $DBConnect = mysqli_connect("localhost", "root", "");
@@ -121,7 +119,7 @@
                                         while ($Row = mysqli_fetch_assoc($QueryResult))
                                         {
                                             echo "<p>{$Row['Opleidingen']}</p>";
-                                            echo "<p><a href ='cvopleidingen_edit.php?cvID=" . $Row['cvID'] . "'>Edit</a><p>";
+                                            echo "<p><a href ='index.php?page=cvopleidingen_edit&cvID=" . $Row['cvID'] . "'>Edit</a><p>";
                                         }
                                     }
                                     mysqli_free_result($QueryResult);

@@ -815,6 +815,14 @@ pre code {
   display: table;
   content: " ";
 }
+
+.letterkleur{
+	color: #212121 !important;
+}	
+ 
+#uploadfoto{
+	background-color: #C5CAE9 !important;
+}
  
 .container:after {
   clear: both;
@@ -4956,7 +4964,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   padding: 8px 15px;
   margin-bottom: 20px;
   list-style: none;
-  background-color: #f5f5f5;
+  background-color: #3F51B5;
   border-radius: 4px;
 }
  

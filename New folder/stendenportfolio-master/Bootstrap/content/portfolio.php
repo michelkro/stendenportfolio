@@ -7,14 +7,14 @@
         ?>
       <ol class="breadcrumb">
         <li><a href="index.php"><i class="icon-dashboard"></i> Dashboard</a></li>
-        <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
+        <li class="active"><i class="icon-file-alt"></i> Portfolio</li>
       </ol>
     </div>
       <div id="content">
             <div class="info">
-                                    <div class="pasfoto">
-                                            <img src="img/Pasfoto.jpg" alt="pasfoto">
-                                    </div>
+                <div class="pasfoto">
+                    <img src="img/Pasfoto.jpg" alt="pasfoto">
+                </div>
                 <div class="gegevens">
                     <h2>Personelijke gegevens</h2>
                     <p>Adres: Ovaalstraat 33</p>

@@ -5,8 +5,8 @@
             <h1>Projecten & Foto's</h1>
             <ol class="breadcrumb">
               <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
-              <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
-			  <li><a href="projectupload.php"><input type="submit" name="uploadproject" value="Upload a new project"></a></li>
+              <li class="active"><i class="icon-file-alt"></i> Projecten</li>
+			  <li><a href="content/projectupload.php"><input type="submit" name="uploadproject" value="Upload a new project" id="uploadfoto"></a></li>
             </ol>
           </div>
         </div><!-- /.row -->

@@ -5,7 +5,7 @@
             <h1>Beoordelingen<small> //Beoordelingen van docenten</small></h1>
             <ol class="breadcrumb">
               <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
-              <li class="active"><i class="icon-file-alt"></i> Blank Page</li>
+              <li class="active"><i class="icon-file-alt"></i> Beoordeling</li>
             </ol>
             <div class="row">
                     <div class="col-sm-4">
